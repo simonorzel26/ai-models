@@ -45,11 +45,11 @@ jobs:
         run: |
           echo "Checking if dependencies are up to date..."
 
-          # Check if lockfile is older than 3 days (reasonable for AI SDK updates)
+          # Check if lockfile is older than 1 day (reasonable for AI SDK updates)
           if [ -f bun.lock ]; then
             LOCKFILE_AGE_DAYS=$((($(date +%s) - $(date -r bun.lock +%s 2>/dev/null || date -d "$(stat -c %y bun.lock)" +%s)) / 86400))
 
-            if [ "$LOCKFILE_AGE_DAYS" -gt 3 ]; then
+            if [ "$LOCKFILE_AGE_DAYS" -gt 1 ]; then
               echo "⚠️  Lockfile is $LOCKFILE_AGE_DAYS days old"
               echo "📅 Last modified: $(date -r bun.lock 2>/dev/null || stat -c %y bun.lock)"
               echo ""
