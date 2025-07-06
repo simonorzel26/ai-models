@@ -26,12 +26,14 @@
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:unit": "vitest run tests/unit tests/types",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:types": "vitest run --typecheck",
     "test:integration": "npm run build && vitest run tests/integration",
-    "test:all": "npm run typecheck && npm run test && npm run test:integration",
-    "prepublishOnly": "npm run test:all && npm run build",
+    "test:integration-only": "vitest run tests/integration",
+    "test:all": "npm run typecheck && npm run test:unit && npm run bundle && npm run test:integration-only",
+    "prepublishOnly": "npm run test:all",
     "release": "npm version patch && npm publish"
   },
   "keywords": [

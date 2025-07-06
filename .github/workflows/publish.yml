@@ -69,11 +69,14 @@ jobs:
       - name: Type check
         run: bun run typecheck
 
-      - name: Run tests
-        run: bun run test
+      - name: Run unit tests
+        run: bun run test:unit
 
       - name: Build package
         run: bun run bundle
+
+      - name: Run integration tests
+        run: bun run test:integration-only
 
       - name: Test package imports
         run: |
