@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Generated files (keep ai-models.ts in version control)
+# ai-models.ts
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+dist/

@@ -1,0 +1,116 @@
+{
+  "name": "@shadcn/ai-models",
+  "version": "1.0.0",
+  "description": "AI model types extractor for @ai-sdk providers",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "extract": "bun src/extract-model-types.ts",
+    "build": "npm run extract && npm run bundle",
+    "bundle": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:types": "vitest run --typecheck",
+    "test:integration": "npm run build && vitest run tests/integration",
+    "test:all": "npm run typecheck && npm run test && npm run test:integration",
+    "prepublishOnly": "npm run test:all && npm run build",
+    "release": "npm version patch && npm publish"
+  },
+  "keywords": [
+    "ai",
+    "models",
+    "typescript",
+    "ai-sdk",
+    "openai",
+    "anthropic",
+    "mistral",
+    "llm",
+    "language-models",
+    "model-types"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "@ai-sdk/amazon-bedrock": "*",
+    "@ai-sdk/anthropic": "*",
+    "@ai-sdk/assemblyai": "*",
+    "@ai-sdk/azure": "*",
+    "@ai-sdk/cerebras": "*",
+    "@ai-sdk/cohere": "*",
+    "@ai-sdk/deepgram": "*",
+    "@ai-sdk/deepinfra": "*",
+    "@ai-sdk/deepseek": "*",
+    "@ai-sdk/elevenlabs": "*",
+    "@ai-sdk/fireworks": "*",
+    "@ai-sdk/gladia": "*",
+    "@ai-sdk/google": "*",
+    "@ai-sdk/google-vertex": "*",
+    "@ai-sdk/groq": "*",
+    "@ai-sdk/hume": "*",
+    "@ai-sdk/lmnt": "*",
+    "@ai-sdk/mistral": "*",
+    "@ai-sdk/openai": "*",
+    "@ai-sdk/perplexity": "*",
+    "@ai-sdk/revai": "*",
+    "@ai-sdk/togetherai": "*",
+    "@ai-sdk/xai": "*",
+    "ollama-ai-provider": "*",
+    "chrome-ai": "*",
+    "@friendliai/ai-provider": "*",
+    "@portkey-ai/vercel-provider": "*",
+    "workers-ai-provider": "*",
+    "@openrouter/ai-sdk-provider": "*",
+    "@requesty/ai-sdk": "*",
+    "@crosshatch/ai-provider": "*",
+    "mixedbread-ai-provider": "*",
+    "voyage-ai-provider": "*",
+    "@mem0/vercel-ai-provider": "*",
+    "@letta-ai/vercel-ai-sdk-provider": "*",
+    "spark-ai-provider": "*",
+    "anthropic-vertex-ai": "*",
+    "@langdb/vercel-provider": "*",
+    "dify-ai-provider": "*",
+    "sarvam-ai-provider": "*"
+  },
+  "files": [
+    "dist/**/*",
+    "src/extract-model-types.ts",
+    "README.md"
+  ],
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shadcn-ui/ai-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shadcn-ui/ai-models/issues"
+  },
+  "homepage": "https://github.com/shadcn-ui/ai-models#readme"
+}

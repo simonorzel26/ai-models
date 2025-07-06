@@ -1,0 +1,225 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to npm'
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # Run weekly on Monday at 9 AM UTC to check for updates
+    - cron: '0 9 * * 1'
+
+env:
+  NODE_VERSION: '20'
+  BUN_VERSION: '1.2.16'
+
+jobs:
+  extract-and-build:
+    name: Extract Models & Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for npm provenance
+    outputs:
+      version: ${{ steps.package-version.outputs.version }}
+      has-changes: ${{ steps.check-changes.outputs.has-changes }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install AI SDK providers
+        run: |
+          # Install all the AI SDK providers needed for extraction
+          bun add -D \
+            @ai-sdk/amazon-bedrock \
+            @ai-sdk/anthropic \
+            @ai-sdk/assemblyai \
+            @ai-sdk/azure \
+            @ai-sdk/cerebras \
+            @ai-sdk/cohere \
+            @ai-sdk/deepgram \
+            @ai-sdk/deepinfra \
+            @ai-sdk/deepseek \
+            @ai-sdk/elevenlabs \
+            @ai-sdk/fireworks \
+            @ai-sdk/gladia \
+            @ai-sdk/google \
+            @ai-sdk/google-vertex \
+            @ai-sdk/groq \
+            @ai-sdk/hume \
+            @ai-sdk/lmnt \
+            @ai-sdk/mistral \
+            @ai-sdk/openai \
+            @ai-sdk/perplexity \
+            @ai-sdk/revai \
+            @ai-sdk/togetherai \
+            @ai-sdk/xai \
+            ollama-ai-provider \
+            chrome-ai \
+            @friendliai/ai-provider \
+            @portkey-ai/vercel-provider \
+            workers-ai-provider \
+            @openrouter/ai-sdk-provider \
+            @requesty/ai-sdk \
+            @crosshatch/ai-provider \
+            mixedbread-ai-provider \
+            voyage-ai-provider \
+            @mem0/vercel-ai-provider \
+            @letta-ai/vercel-ai-sdk-provider \
+            spark-ai-provider \
+            anthropic-vertex-ai \
+            @langdb/vercel-provider \
+            dify-ai-provider \
+            sarvam-ai-provider
+
+      - name: Extract model types
+        run: bun src/extract-model-types.ts
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet src/ai-models.ts; then
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has-changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes
+        if: steps.check-changes.outputs.has-changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/ai-models.ts
+          git commit -m "chore: update AI model types [skip ci]"
+
+      - name: Push changes
+        if: steps.check-changes.outputs.has-changes == 'true' && github.event_name == 'schedule'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Type check
+        run: bun run typecheck
+
+      - name: Build package
+        run: bun run bundle
+
+      - name: Test import
+        run: |
+          node -e "
+            const pkg = require('./dist/index.cjs');
+            console.log('✅ CJS import successful');
+            console.log('Providers:', pkg.getProviders().length);
+            console.log('Models:', pkg.ALL_MODELS.length);
+          "
+          node -e "
+            import('./dist/index.js').then(pkg => {
+              console.log('✅ ESM import successful');
+              console.log('Providers:', pkg.getProviders().length);
+              console.log('Models:', pkg.ALL_MODELS.length);
+            });
+          "
+
+      - name: Get package version
+        id: package-version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            dist/
+            src/ai-models.ts
+            package.json
+          retention-days: 30
+
+  publish:
+    name: Publish to npm
+    needs: extract-and-build
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      github.event.inputs.publish == 'true' ||
+      (github.event_name == 'schedule' && needs.extract-and-build.outputs.has-changes == 'true')
+    permissions:
+      contents: read
+      id-token: write # Required for npm provenance
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Bump version
+        if: needs.extract-and-build.outputs.has-changes == 'true'
+        run: npm version patch --no-git-tag-version
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create release tag
+        if: needs.extract-and-build.outputs.has-changes == 'true'
+        run: |
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          git tag "v$NEW_VERSION"
+          git push origin "v$NEW_VERSION"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: Notify Status
+    needs: [extract-and-build, publish]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Notify Success
+        if: needs.extract-and-build.result == 'success'
+        run: |
+          echo "✅ Build completed successfully"
+          echo "Version: ${{ needs.extract-and-build.outputs.version }}"
+          echo "Has changes: ${{ needs.extract-and-build.outputs.has-changes }}"
+
+      - name: Notify Failure
+        if: needs.extract-and-build.result == 'failure'
+        run: |
+          echo "❌ Build failed"
+          exit 1
