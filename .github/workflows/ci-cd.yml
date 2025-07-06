@@ -146,7 +146,7 @@ jobs:
         run: npm version patch --no-git-tag-version
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: npm publish --access public --provenance=false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

@@ -134,7 +134,7 @@ jobs:
         run: git push
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: npm publish --access public --provenance=false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -148,7 +148,7 @@ jobs:
           body: |
             ## 🚀 Release ${{ steps.new-version.outputs.version }}
 
-            **Published**: `ai-models@${{ steps.new-version.outputs.version }}`
+            **Published**: `@simonorzel26/ai-models@${{ steps.new-version.outputs.version }}`
 
             ### 📊 Stats
             - **Total Models**: Updated with latest AI SDK providers
@@ -157,21 +157,21 @@ jobs:
 
             ### 🔄 Changes
             - ${{ steps.version-bump.outputs.reason }}
-            - Updated model types from latest AI SDK providers
-            - Improved type definitions and utility functions
+            - Updated model types from latest Vercel AI SDK providers
+            - Improved TypeScript type definitions and utility functions
 
-                         ### 📦 Installation
-             ```bash
-             npm install ai-models
-             # or
-             bun add ai-models
-             # or
-             yarn add ai-models
-             ```
+            ### 📦 Installation
+            ```bash
+            npm install @simonorzel26/ai-models
+            # or
+            bun add @simonorzel26/ai-models
+            # or
+            yarn add @simonorzel26/ai-models
+            ```
 
-             ### 🛠️ Usage
-             ```typescript
-             import { getModelsByProvider, ALL_MODELS } from 'ai-models';
+            ### 🛠️ Usage
+            ```typescript
+            import { getModelsByProvider, ALL_MODELS } from '@simonorzel26/ai-models';
 
             // Get all OpenAI models
             const openaiModels = getModelsByProvider('openai');
@@ -187,8 +187,8 @@ jobs:
 
       - name: Notify success
         run: |
-          echo "🎉 Successfully published ai-models@${{ steps.new-version.outputs.version }} to npm!"
-          echo "📦 Package: https://www.npmjs.com/package/ai-models"
+          echo "🎉 Successfully published @simonorzel26/ai-models@${{ steps.new-version.outputs.version }} to npm!"
+          echo "📦 Package: https://www.npmjs.com/package/@simonorzel26/ai-models"
           echo "🏷️ Tag: ${{ steps.new-version.outputs.version }}"
           echo "📊 Total Models: $(node -p "require('./dist/index.cjs').ALL_MODELS.length")"
           echo "🏢 Total Providers: $(node -p "require('./dist/index.cjs').getProviders().length")"
