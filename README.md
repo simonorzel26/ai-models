@@ -1,32 +1,16 @@
-# ai-models
+# @simonorzel26/ai-models
 
-[![npm version](https://badge.fury.io/js/ai-models.svg)](https://badge.fury.io/js/ai-models)
-[![npm downloads](https://img.shields.io/npm/dm/ai-models.svg)](https://www.npmjs.com/package/ai-models)
+[![npm version](https://badge.fury.io/js/@simonorzel26%2Fai-models.svg)](https://badge.fury.io/js/@simonorzel26%2Fai-models)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**AI model types and utilities for the Vercel AI SDK ecosystem**
+**TypeScript types for all Vercel AI SDK exported AI models**
 
-Automatically generated TypeScript types and utilities for all AI SDK providers. This package provides comprehensive type definitions for 1,000+ AI models across 28+ providers, with automatic updates when new models are released.
-
-## 🚀 Features
-
-- ✅ **Complete Type Coverage**: 1,000+ AI models across 28+ providers
-- ✅ **Multi-Format Support**: ESM, CJS, and TypeScript declarations
-- ✅ **Auto-Generated**: Automatically updated when providers release new models
-- ✅ **Type Safety**: Full TypeScript support with intelligent autocomplete
-- ✅ **Utility Functions**: Helper functions for filtering and querying models
-- ✅ **Lightweight**: Tree-shakeable exports, only import what you need
+Automatically generated TypeScript types and utilities for all Vercel AI SDK providers. This package extracts and exports model types from 28+ @ai-sdk providers, covering 1,000+ AI models with full type safety.
 
 ## 📦 Installation
 
 ```bash
-npm install ai-models
-# or
-pnpm add ai-models
-# or
-yarn add ai-models
-# or
-bun add ai-models
+npm install @simonorzel26/ai-models
 ```
 
 ## 🔧 Usage
@@ -37,32 +21,15 @@ bun add ai-models
 import {
   OpenaiOpenAIChatModelId,
   AnthropicAnthropicMessagesModelId,
-  AI_SDK_MODELS,
-  getModelsByProvider,
-  getModelsByCategory
-} from 'ai-models';
+  GoogleGoogleGenerativeAIModelId,
+  MistralMistralChatModelId
+} from '@simonorzel26/ai-models';
 
-// Use specific provider model types
+// Type-safe model selection
 const openaiModel: OpenaiOpenAIChatModelId = 'gpt-4';
 const anthropicModel: AnthropicAnthropicMessagesModelId = 'claude-3-opus';
-```
-
-### Query Models Dynamically
-
-```typescript
-import { getModelsByProvider, getModelsByCategory, getProviders } from 'ai-models';
-
-// Get all OpenAI models
-const openaiModels = getModelsByProvider('openai');
-console.log(openaiModels); // [{ provider: 'openai', model: 'gpt-4', category: 'chat', value: 'openai:gpt-4' }, ...]
-
-// Get all chat models
-const chatModels = getModelsByCategory('chat');
-console.log(chatModels.length); // 500+
-
-// Get all available providers
-const providers = getProviders();
-console.log(providers); // ['openai', 'anthropic', 'google', ...]
+const googleModel: GoogleGoogleGenerativeAIModelId = 'gemini-pro';
+const mistralModel: MistralMistralChatModelId = 'mistral-large';
 ```
 
 ### Use with Vercel AI SDK
@@ -70,9 +37,8 @@ console.log(providers); // ['openai', 'anthropic', 'google', ...]
 ```typescript
 import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
-import { OpenaiOpenAIChatModelId } from 'ai-models';
+import { OpenaiOpenAIChatModelId } from '@simonorzel26/ai-models';
 
-// Type-safe model selection
 const model: OpenaiOpenAIChatModelId = 'gpt-4-turbo';
 
 const result = await generateText({
@@ -81,82 +47,91 @@ const result = await generateText({
 });
 ```
 
-### Browse Model Registry
+### Query Models Dynamically
 
 ```typescript
-import { AI_SDK_MODELS } from 'ai-models';
+import { getModelsByProvider, getModelsByCategory, modelRegistry } from '@simonorzel26/ai-models';
 
-// Explore available models by provider and category
-console.log(AI_SDK_MODELS.openai.chat); // OpenAI chat models
-console.log(AI_SDK_MODELS.openai.embedding); // OpenAI embedding models
-console.log(AI_SDK_MODELS.anthropic.chat); // Anthropic chat models
+// Get all OpenAI models
+const openaiModels = getModelsByProvider('openai');
+// Returns: [{ provider: 'openai', model: 'gpt-4', category: 'chat', value: 'openai:gpt-4' }, ...]
+
+// Get all chat models across providers
+const chatModels = getModelsByCategory('chat');
+
+// Browse organized model registry
+console.log(modelRegistry.openai.chat); // All OpenAI chat models
+console.log(modelRegistry.anthropic.chat); // All Anthropic chat models
 ```
 
-## 🏗️ Supported Providers
+## 📋 Exported Types
 
-### Official @ai-sdk Providers (18)
-- **OpenAI** - GPT-4, GPT-3.5, DALL-E, Whisper, TTS models
-- **Anthropic** - Claude 3 Opus, Sonnet, Haiku models
-- **Google** - Gemini, PaLM, Vertex AI models
-- **Mistral** - Mistral 7B, Mixtral, Codestral models
-- **Cohere** - Command, Embed models
-- **Amazon Bedrock** - Multi-provider models via AWS
-- **And 12+ more official providers**
-
-### Community Providers (10)
-- **Ollama** - Local model execution
-- **OpenRouter** - Unified API for multiple providers
-- **Together.ai** - Open-source model hosting
-- **DeepInfra** - Serverless inference
-- **Fireworks** - Fast inference platform
-- **And 5+ more community providers**
-
-## 📊 Statistics
-
-- **28 providers** with extractable types
-- **54 unique model types** generated
-- **1,021 total models** cataloged
-- **7 model categories** (chat, embedding, image, transcription, speech, completion, responses)
-
-## 🔄 Automatic Updates
-
-This package is automatically updated via GitHub Actions:
-
-- **Weekly**: Checks for new AI SDK releases
-- **Manual**: Can be triggered manually via GitHub Actions
-- **CI/CD**: Automatically builds and publishes when models change
-
-## 📖 API Reference
-
-### Types
+### Provider-Specific Model Types
 
 ```typescript
-// Provider-specific model types
-type OpenaiOpenAIChatModelId = 'gpt-4' | 'gpt-4-turbo' | 'gpt-3.5-turbo' | ...;
-type AnthropicAnthropicMessagesModelId = 'claude-3-opus' | 'claude-3-sonnet' | ...;
+// OpenAI Models
+type OpenaiOpenAIChatModelId = 'gpt-4' | 'gpt-4-turbo' | 'gpt-3.5-turbo' | 'o1' | 'o1-mini' | ...;
+type OpenaiOpenAIEmbeddingModelId = 'text-embedding-3-large' | 'text-embedding-3-small' | ...;
+type OpenaiOpenAIImageModelId = 'dall-e-3' | 'dall-e-2';
+type OpenaiOpenAITranscriptionModelId = 'whisper-1';
+type OpenaiOpenAISpeechModelId = 'tts-1' | 'tts-1-hd';
 
-// Global types
+// Anthropic Models
+type AnthropicAnthropicMessagesModelId = 'claude-3-opus' | 'claude-3-sonnet' | 'claude-3-haiku' | ...;
+
+// Google Models
+type GoogleGoogleGenerativeAIModelId = 'gemini-pro' | 'gemini-pro-vision' | 'gemini-1.5-pro' | ...;
+type GoogleGoogleVertexAIModelId = 'gemini-1.5-flash' | 'gemini-1.5-pro' | ...;
+
+// Mistral Models
+type MistralMistralChatModelId = 'mistral-large' | 'mistral-medium' | 'mistral-small' | ...;
+type MistralMistralEmbeddingModelId = 'mistral-embed';
+
+// And 50+ more provider-specific types...
+```
+
+### Utility Types
+
+```typescript
 type AISDKModel = {
   provider: string;
   model: string;
   category: string;
   value: string;
 };
+
 type AISDKProvider = string;
 type AISDKModelCategory = 'chat' | 'embedding' | 'image' | 'transcription' | 'speech' | 'completion' | 'responses';
 ```
 
-### Constants
+## 📊 Exported Constants
+
+### Model Registry
 
 ```typescript
-// Complete model registry organized by provider and category
-const AI_SDK_MODELS: Record<string, Record<string, Record<string, string[]>>>;
+// Organized by provider → category → models
+const modelRegistry: Record<string, Record<string, Record<string, string[]>>>;
 
-// Flat array of all models with metadata
-const ALL_MODELS: AISDKModel[];
+// Example structure:
+// {
+//   openai: {
+//     chat: { models: ['gpt-4', 'gpt-3.5-turbo', ...] },
+//     embedding: { models: ['text-embedding-3-large', ...] }
+//   },
+//   anthropic: {
+//     chat: { models: ['claude-3-opus', 'claude-3-sonnet', ...] }
+//   }
+// }
 ```
 
-### Utility Functions
+### All Models Array
+
+```typescript
+// Flat array of all models with metadata
+const allModels: AISDKModel[];
+```
+
+## 🔧 Exported Functions
 
 ```typescript
 // Get models by provider
@@ -172,54 +147,46 @@ function getProviders(): AISDKProvider[];
 function getCategories(): AISDKModelCategory[];
 ```
 
-## 🛠️ Development
+## 🎯 Supported Providers
 
-### Local Development
+**28 providers** with extractable types from **45 total @ai-sdk providers**:
 
-```bash
-# Clone the repository
-git clone https://github.com/shadcn-ui/ai-models.git
+### Official @ai-sdk Providers
+- `@ai-sdk/openai` - GPT-4, GPT-3.5, DALL-E, Whisper, TTS
+- `@ai-sdk/anthropic` - Claude 3 Opus, Sonnet, Haiku
+- `@ai-sdk/google` - Gemini models
+- `@ai-sdk/google-vertex` - Vertex AI models
+- `@ai-sdk/mistral` - Mistral 7B, Mixtral, Codestral
+- `@ai-sdk/cohere` - Command, Embed models
+- `@ai-sdk/amazon-bedrock` - Multi-provider via AWS
+- `@ai-sdk/groq` - Fast inference models
+- `@ai-sdk/fireworks` - Open-source models
+- `@ai-sdk/togetherai` - Together AI models
+- `@ai-sdk/deepinfra` - Serverless inference
+- `@ai-sdk/perplexity` - Perplexity models
+- `@ai-sdk/xai` - xAI models
+- `@ai-sdk/deepseek` - DeepSeek models
+- `@ai-sdk/cerebras` - Cerebras models
+- Plus 13+ more official providers
 
-# Install dependencies
-bun install
+### Community Providers
+- `ollama-ai-provider` - Local model execution
+- `anthropic-vertex-ai` - Anthropic via Vertex
+- `mixedbread-ai-provider` - Embedding models
+- `voyage-ai-provider` - Voyage embeddings
+- `spark-ai-provider` - Spark models
+- `chrome-ai` - Chrome built-in AI
+- `sarvam-ai-provider` - Sarvam models
+- Plus 5+ more community providers
 
-# Extract model types from installed providers
-bun run extract
+## 📈 Statistics
 
-# Build the package
-bun run build
-
-# Run type checking
-bun run typecheck
-```
-
-### Project Structure
-
-```
-src/
-├── extract-model-types.ts  # Model extraction script
-├── ai-models.ts           # Generated model types (auto-generated)
-└── index.ts              # Main entry point
-
-dist/
-├── index.js              # ESM build
-├── index.cjs             # CommonJS build
-├── index.d.ts            # TypeScript declarations (ESM)
-└── index.d.cts           # TypeScript declarations (CJS)
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Add support for new providers in `COMMUNITY_PROVIDERS`
-4. Update extraction patterns if needed
-5. Submit a pull request
-
-## 📝 License
-
-MIT © [shadcn](https://github.com/shadcn)
+- **54 unique model types** generated
+- **1,021 total models** cataloged
+- **7 model categories** supported
+- **Multi-format builds** (ESM, CJS, TypeScript)
+- **Automatic updates** via GitHub Actions
 
 ---
 
-**Note**: This package is automatically generated and maintained. Model types are extracted directly from the official AI SDK provider packages to ensure accuracy and completeness.
+*This package automatically extracts and exports TypeScript types from all installed Vercel AI SDK providers, ensuring type safety across the entire AI SDK ecosystem.*
