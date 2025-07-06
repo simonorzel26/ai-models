@@ -119,7 +119,7 @@ describe('Package Import Integration Tests', () => {
     it('should have correct package.json structure', async () => {
       const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
-      expect(packageJson.name).toBe('@shadcn/ai-models');
+      expect(packageJson.name).toBe('@simonorzel26/ai-models');
       expect(packageJson.main).toBe('./dist/index.js');
       expect(packageJson.module).toBe('./dist/index.mjs');
       expect(packageJson.types).toBe('./dist/index.d.ts');

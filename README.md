@@ -1,7 +1,7 @@
-# @shadcn/ai-models
+# ai-models
 
-[![npm version](https://badge.fury.io/js/@shadcn%2Fai-models.svg)](https://badge.fury.io/js/@shadcn%2Fai-models)
-[![npm downloads](https://img.shields.io/npm/dm/@shadcn/ai-models.svg)](https://www.npmjs.com/package/@shadcn/ai-models)
+[![npm version](https://badge.fury.io/js/ai-models.svg)](https://badge.fury.io/js/ai-models)
+[![npm downloads](https://img.shields.io/npm/dm/ai-models.svg)](https://www.npmjs.com/package/ai-models)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **AI model types and utilities for the Vercel AI SDK ecosystem**
@@ -20,13 +20,13 @@ Automatically generated TypeScript types and utilities for all AI SDK providers.
 ## 📦 Installation
 
 ```bash
-npm install @shadcn/ai-models
+npm install ai-models
 # or
-pnpm add @shadcn/ai-models
+pnpm add ai-models
 # or
-yarn add @shadcn/ai-models
+yarn add ai-models
 # or
-bun add @shadcn/ai-models
+bun add ai-models
 ```
 
 ## 🔧 Usage
@@ -40,7 +40,7 @@ import {
   AI_SDK_MODELS,
   getModelsByProvider,
   getModelsByCategory
-} from '@shadcn/ai-models';
+} from 'ai-models';
 
 // Use specific provider model types
 const openaiModel: OpenaiOpenAIChatModelId = 'gpt-4';
@@ -50,7 +50,7 @@ const anthropicModel: AnthropicAnthropicMessagesModelId = 'claude-3-opus';
 ### Query Models Dynamically
 
 ```typescript
-import { getModelsByProvider, getModelsByCategory, getProviders } from '@shadcn/ai-models';
+import { getModelsByProvider, getModelsByCategory, getProviders } from 'ai-models';
 
 // Get all OpenAI models
 const openaiModels = getModelsByProvider('openai');
@@ -70,7 +70,7 @@ console.log(providers); // ['openai', 'anthropic', 'google', ...]
 ```typescript
 import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
-import { OpenaiOpenAIChatModelId } from '@shadcn/ai-models';
+import { OpenaiOpenAIChatModelId } from 'ai-models';
 
 // Type-safe model selection
 const model: OpenaiOpenAIChatModelId = 'gpt-4-turbo';
@@ -84,7 +84,7 @@ const result = await generateText({
 ### Browse Model Registry
 
 ```typescript
-import { AI_SDK_MODELS } from '@shadcn/ai-models';
+import { AI_SDK_MODELS } from 'ai-models';
 
 // Explore available models by provider and category
 console.log(AI_SDK_MODELS.openai.chat); // OpenAI chat models

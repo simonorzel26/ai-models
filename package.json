@@ -1,5 +1,5 @@
 {
-  "name": "@shadcn/ai-models",
+  "name": "@simonorzel26/ai-models",
   "version": "1.0.0",
   "description": "AI model types extractor for @ai-sdk providers",
   "type": "module",
@@ -46,7 +46,7 @@
     "language-models",
     "model-types"
   ],
-  "author": "",
+  "author": "Simon Orzel <simonorzel26@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "@ai-sdk/amazon-bedrock": "*",
@@ -147,10 +147,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadcn-ui/ai-models.git"
+    "url": "git+https://github.com/simonorzel26/ai-models.git"
   },
   "bugs": {
-    "url": "https://github.com/shadcn-ui/ai-models/issues"
+    "url": "https://github.com/simonorzel26/ai-models/issues"
   },
-  "homepage": "https://github.com/shadcn-ui/ai-models#readme"
+  "homepage": "https://github.com/simonorzel26/ai-models#readme"
 }

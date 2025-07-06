@@ -1,0 +1,194 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - '.github/workflows/ci-cd.yml'
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+  BUN_VERSION: '1.2.16'
+
+jobs:
+  publish:
+    name: Extract, Build & Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Extract model types
+        run: bun src/extract-model-types.ts
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet src/ai-models.ts; then
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+            echo "No model changes detected"
+          else
+            echo "has-changes=true" >> $GITHUB_OUTPUT
+            echo "Model changes detected"
+          fi
+
+      - name: Commit model changes
+        if: steps.check-changes.outputs.has-changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/ai-models.ts bun.lock
+          git commit -m "chore: update AI model types [skip ci]"
+          git push
+
+      - name: Type check
+        run: bun run typecheck
+
+      - name: Run tests
+        run: bun run test
+
+      - name: Build package
+        run: bun run bundle
+
+      - name: Test package imports
+        run: |
+          echo "Testing CommonJS import..."
+          node -e "
+            const pkg = require('./dist/index.cjs');
+            console.log('✅ CJS import successful');
+            console.log('Providers:', pkg.getProviders().length);
+            console.log('Models:', pkg.ALL_MODELS.length);
+            console.log('Categories:', pkg.getCategories().length);
+          "
+
+          echo "Testing ESM import..."
+          node -e "
+            import('./dist/index.js').then(pkg => {
+              console.log('✅ ESM import successful');
+              console.log('Providers:', pkg.getProviders().length);
+              console.log('Models:', pkg.ALL_MODELS.length);
+              console.log('Categories:', pkg.getCategories().length);
+            });
+          "
+
+      - name: Get current version
+        id: current-version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Determine version bump
+        id: version-bump
+        run: |
+          if [[ "${{ steps.check-changes.outputs.has-changes }}" == "true" ]]; then
+            echo "bump=minor" >> $GITHUB_OUTPUT
+            echo "reason=Model updates detected - bumping minor version"
+          else
+            echo "bump=patch" >> $GITHUB_OUTPUT
+            echo "reason=Code changes only - bumping patch version"
+          fi
+
+      - name: Bump version
+        id: new-version
+        run: |
+          NEW_VERSION=$(npm version ${{ steps.version-bump.outputs.bump }} --no-git-tag-version)
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+
+      - name: Update package files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package.json
+          git commit -m "chore: bump version to ${{ steps.new-version.outputs.version }} [skip ci]"
+
+      - name: Create git tag
+        run: |
+          git tag ${{ steps.new-version.outputs.version }}
+          git push origin ${{ steps.new-version.outputs.version }}
+
+      - name: Push version bump
+        run: git push
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.new-version.outputs.version }}
+          release_name: Release ${{ steps.new-version.outputs.version }}
+          body: |
+            ## 🚀 Release ${{ steps.new-version.outputs.version }}
+
+            **Published**: `ai-models@${{ steps.new-version.outputs.version }}`
+
+            ### 📊 Stats
+            - **Total Models**: Updated with latest AI SDK providers
+            - **Providers**: 28+ supported providers
+            - **Categories**: Chat, Embedding, Image, Speech, Transcription, etc.
+
+            ### 🔄 Changes
+            - ${{ steps.version-bump.outputs.reason }}
+            - Updated model types from latest AI SDK providers
+            - Improved type definitions and utility functions
+
+                         ### 📦 Installation
+             ```bash
+             npm install ai-models
+             # or
+             bun add ai-models
+             # or
+             yarn add ai-models
+             ```
+
+             ### 🛠️ Usage
+             ```typescript
+             import { getModelsByProvider, ALL_MODELS } from 'ai-models';
+
+            // Get all OpenAI models
+            const openaiModels = getModelsByProvider('openai');
+
+            // Get all chat models
+            const chatModels = getModelsByCategory('chat');
+
+            // Access all models
+            console.log(\`Total models: \${ALL_MODELS.length}\`);
+            ```
+          draft: false
+          prerelease: false
+
+      - name: Notify success
+        run: |
+          echo "🎉 Successfully published ai-models@${{ steps.new-version.outputs.version }} to npm!"
+          echo "📦 Package: https://www.npmjs.com/package/ai-models"
+          echo "🏷️ Tag: ${{ steps.new-version.outputs.version }}"
+          echo "📊 Total Models: $(node -p "require('./dist/index.cjs').ALL_MODELS.length")"
+          echo "🏢 Total Providers: $(node -p "require('./dist/index.cjs').getProviders().length")"
