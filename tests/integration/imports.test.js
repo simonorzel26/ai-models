@@ -120,8 +120,8 @@ describe('Package Import Integration Tests', () => {
       const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
       expect(packageJson.name).toBe('@simonorzel26/ai-models');
-      expect(packageJson.main).toBe('./dist/index.js');
-      expect(packageJson.module).toBe('./dist/index.mjs');
+      expect(packageJson.main).toBe('./dist/index.cjs');
+      expect(packageJson.module).toBe('./dist/index.js');
       expect(packageJson.types).toBe('./dist/index.d.ts');
       expect(packageJson.exports).toBeDefined();
       expect(packageJson.exports['.']).toBeDefined();

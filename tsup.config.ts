@@ -8,8 +8,9 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   minify: false,
-  target: 'es2022',
+  target: 'es2020',
   outDir: 'dist',
+  cjsInterop: true,
   external: [
     // All @ai-sdk packages
     '@ai-sdk/amazon-bedrock',
