@@ -40,6 +40,33 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
 
+                                    - name: Check for @ai-sdk package updates
+        id: check-updates
+        run: |
+          echo "Checking if dependencies are up to date..."
+
+          # Check if lockfile is older than 3 days (reasonable for AI SDK updates)
+          if [ -f bun.lock ]; then
+            LOCKFILE_AGE_DAYS=$((($(date +%s) - $(date -r bun.lock +%s 2>/dev/null || date -d "$(stat -c %y bun.lock)" +%s)) / 86400))
+
+            if [ "$LOCKFILE_AGE_DAYS" -gt 3 ]; then
+              echo "⚠️  Lockfile is $LOCKFILE_AGE_DAYS days old"
+              echo "📅 Last modified: $(date -r bun.lock 2>/dev/null || stat -c %y bun.lock)"
+              echo ""
+              echo "❌ Exiting workflow to ensure latest @ai-sdk versions are used."
+              echo "💡 To update:"
+              echo "   1. Run 'bun update' locally to get latest @ai-sdk versions"
+              echo "   2. Test the changes with 'bun run test:all'"
+              echo "   3. Commit and push the updated bun.lock"
+              echo "   4. The workflow will then publish with latest versions"
+              exit 1
+            else
+              echo "✅ Lockfile is recent ($LOCKFILE_AGE_DAYS days old)"
+            fi
+          else
+            echo "⚠️  No lockfile found"
+          fi
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
