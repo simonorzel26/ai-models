@@ -44,6 +44,10 @@ function extractModelTypes(content: string): ModelType[] {
         continue;
       }
 
+      if (typeName === 'OpenAIResponsesModelId') {
+        continue;
+      }
+
       // Extract the string literals from the union type
       const modelMatches = definition.match(/'([^']+)'/g);
       if (modelMatches) {
