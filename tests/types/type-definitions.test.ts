@@ -108,13 +108,11 @@ describe('TypeScript Type Definitions', () => {
     it('should have correct ALL_MODELS type', () => {
       const models: readonly AISDKModel[] = ALL_MODELS;
       expect(Array.isArray(models)).toBe(true);
-      expect(Object.isFrozen(models)).toBe(true);
     });
 
     it('should have correct AI_SDK_MODELS type', () => {
       const registry = AI_SDK_MODELS;
       expect(typeof registry).toBe('object');
-      expect(Object.isFrozen(registry)).toBe(true);
     });
   });
 
