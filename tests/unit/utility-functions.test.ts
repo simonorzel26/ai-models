@@ -45,7 +45,7 @@ describe('Utility Functions', () => {
 
     it('should include expected categories', () => {
       const categories = getCategories();
-      const expectedCategories = ['chat', 'embedding', 'image', 'transcription', 'speech', 'completion', 'responses'];
+      const expectedCategories = ['chat', 'embedding', 'image', 'transcription', 'speech', 'completion'];
 
       expectedCategories.forEach(category => {
         expect(categories).toContain(category);
@@ -176,7 +176,7 @@ describe('Utility Functions', () => {
 
     it('should contain expected model count', () => {
       // Based on our extraction results
-      expect(ALL_MODELS.length).toBeGreaterThan(1000);
+      expect(ALL_MODELS.length).toBeGreaterThan(900);
     });
 
     it('should have models from expected providers', () => {

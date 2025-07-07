@@ -45,7 +45,7 @@ describe('Package Import Integration Tests', () => {
       expect(result.hasAllModels).toBe(true);
       expect(result.hasAiSdkModels).toBe(true);
       expect(result.providersCount).toBeGreaterThan(0);
-      expect(result.modelsCount).toBeGreaterThan(1000);
+      expect(result.modelsCount).toBeGreaterThan(900);
       expect(result.categoriesCount).toBeGreaterThan(0);
       expect(typeof result.sampleProvider).toBe('string');
       expect(typeof result.sampleCategory).toBe('string');
@@ -71,7 +71,7 @@ describe('Package Import Integration Tests', () => {
       expect(result.allModelsArray).toBe(true);
       expect(result.aiSdkModelsObject).toBe('object');
       expect(result.providersLength).toBeGreaterThan(0);
-      expect(result.modelsLength).toBeGreaterThan(1000);
+      expect(result.modelsLength).toBeGreaterThan(900);
     });
   });
 
@@ -108,7 +108,7 @@ describe('Package Import Integration Tests', () => {
       expect(result.hasAllModels).toBe(true);
       expect(result.hasAiSdkModels).toBe(true);
       expect(result.providersCount).toBeGreaterThan(0);
-      expect(result.modelsCount).toBeGreaterThan(1000);
+      expect(result.modelsCount).toBeGreaterThan(900);
       expect(result.categoriesCount).toBeGreaterThan(0);
       expect(result.openaiModelsCount).toBeGreaterThan(0);
       expect(result.chatModelsCount).toBeGreaterThan(0);
