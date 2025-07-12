@@ -47,7 +47,7 @@ import {
   ALL_MODELS,
   getProviders,
   getCategories,
-} from '../../src/ai-models.js';
+} from '../../src/improved-exports.js';
 
 describe('Improved Type Exports & Utilities', () => {
   describe('Clean Type Names', () => {
