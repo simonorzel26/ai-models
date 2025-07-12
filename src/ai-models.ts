@@ -1332,3 +1332,298 @@ export function getProviders(): AISDKProvider[] {
 export function getCategories(): AISDKModelCategory[] {
   return Array.from(new Set(ALL_MODELS.map(m => m.category)));
 }
+
+// =============================================================================
+// IMPROVED TYPE EXPORTS & UTILITIES
+// =============================================================================
+
+// Better Type Aliases with Cleaner Names
+export type OpenAIChatModel = OpenaiOpenAIChatModelId;
+export type OpenAICompletionModel = OpenaiOpenAICompletionModelId;
+export type OpenAIEmbeddingModel = OpenaiOpenAIEmbeddingModelId;
+export type OpenAIImageModel = OpenaiOpenAIImageModelId;
+export type OpenAITranscriptionModel = OpenaiOpenAITranscriptionModelId;
+export type OpenAISpeechModel = OpenaiOpenAISpeechModelId;
+
+export type AnthropicChatModel = AnthropicAnthropicMessagesModelId;
+export type GoogleChatModel = GoogleGoogleGenerativeAIModelId;
+export type GoogleEmbeddingModel = GoogleGoogleGenerativeAIEmbeddingModelId;
+export type GoogleImageModel = GoogleVertexGoogleVertexImageModelId;
+export type MistralChatModel = MistralMistralChatModelId;
+export type MistralEmbeddingModel = MistralMistralEmbeddingModelId;
+export type CohereChatModel = CohereCohereChatModelId;
+export type CohereEmbeddingModel = CohereCohereEmbeddingModelId;
+export type DeepSeekChatModel = DeepseekDeepSeekChatModelId;
+export type XAIChatModel = XaiXaiChatModelId;
+export type XAIImageModel = XaiXaiImageModelId;
+export type PerplexityChatModel = PerplexityPerplexityLanguageModelId;
+export type GroqChatModel = GroqGroqChatModelId;
+export type GroqTranscriptionModel = GroqGroqTranscriptionModelId;
+
+// Category-based type unions
+export type ChatModel =
+  | OpenAIChatModel
+  | AnthropicChatModel
+  | GoogleChatModel
+  | MistralChatModel
+  | CohereChatModel
+  | DeepSeekChatModel
+  | XAIChatModel
+  | PerplexityChatModel
+  | GroqChatModel;
+
+export type EmbeddingModel =
+  | OpenAIEmbeddingModel
+  | GoogleEmbeddingModel
+  | MistralEmbeddingModel
+  | CohereEmbeddingModel;
+
+export type ImageModel =
+  | OpenAIImageModel
+  | GoogleImageModel
+  | XAIImageModel;
+
+export type TranscriptionModel =
+  | OpenAITranscriptionModel
+  | GroqTranscriptionModel;
+
+export type SpeechModel = OpenAISpeechModel;
+
+// Provider-specific model collections
+export const OPENAI_MODELS = {
+  chat: AI_SDK_MODELS.openai.chat.OpenaiOpenAIChatModelId,
+  completion: AI_SDK_MODELS.openai.completion.OpenaiOpenAICompletionModelId,
+  embedding: AI_SDK_MODELS.openai.embedding.OpenaiOpenAIEmbeddingModelId,
+  image: AI_SDK_MODELS.openai.image.OpenaiOpenAIImageModelId,
+  transcription: AI_SDK_MODELS.openai.transcription.OpenaiOpenAITranscriptionModelId,
+  speech: AI_SDK_MODELS.openai.speech.OpenaiOpenAISpeechModelId,
+} as const;
+
+export const ANTHROPIC_MODELS = {
+  chat: AI_SDK_MODELS.anthropic.chat.AnthropicAnthropicMessagesModelId,
+} as const;
+
+export const GOOGLE_MODELS = {
+  chat: AI_SDK_MODELS.google.chat.GoogleGoogleGenerativeAIModelId,
+  embedding: AI_SDK_MODELS.google.embedding.GoogleGoogleGenerativeAIEmbeddingModelId,
+  image: AI_SDK_MODELS['google-vertex'].image.GoogleVertexGoogleVertexImageModelId,
+} as const;
+
+export const MISTRAL_MODELS = {
+  chat: AI_SDK_MODELS.mistral.chat.MistralMistralChatModelId,
+  embedding: AI_SDK_MODELS.mistral.embedding.MistralMistralEmbeddingModelId,
+} as const;
+
+// Category-specific model collections
+export const CHAT_MODELS = ALL_MODELS.filter(m => m.category === 'chat').map(m => m.model);
+export const EMBEDDING_MODELS = ALL_MODELS.filter(m => m.category === 'embedding').map(m => m.model);
+export const IMAGE_MODELS = ALL_MODELS.filter(m => m.category === 'image').map(m => m.model);
+export const TRANSCRIPTION_MODELS = ALL_MODELS.filter(m => m.category === 'transcription').map(m => m.model);
+export const SPEECH_MODELS = ALL_MODELS.filter(m => m.category === 'speech').map(m => m.model);
+
+// Enhanced utility functions
+export function getModelsByProviderAndCategory<T extends AISDKProvider, C extends AISDKModelCategory>(
+  provider: T,
+  category: C
+): Extract<AISDKModel, { provider: T; category: C }>[] {
+  return ALL_MODELS.filter(m => m.provider === provider && m.category === category) as any;
+}
+
+export function isModelSupported(provider: AISDKProvider, model: string): boolean {
+  return ALL_MODELS.some(m => m.provider === provider && m.model === model);
+}
+
+export function getModelValue(provider: AISDKProvider, model: string): string | undefined {
+  const modelObj = ALL_MODELS.find(m => m.provider === provider && m.model === model);
+  return modelObj?.value;
+}
+
+export function getModelInfoByProvider(provider: AISDKProvider, model: string): AISDKModel | undefined {
+  return ALL_MODELS.find(m => m.provider === provider && m.model === model);
+}
+
+export function getProvidersByCategory(category: AISDKModelCategory): AISDKProvider[] {
+  return Array.from(new Set(ALL_MODELS.filter(m => m.category === category).map(m => m.provider)));
+}
+
+export function getCategoriesByProvider(provider: AISDKProvider): AISDKModelCategory[] {
+  return Array.from(new Set(ALL_MODELS.filter(m => m.provider === provider).map(m => m.category)));
+}
+
+// Popular model shortcuts
+export const POPULAR_MODELS = {
+  // OpenAI
+  GPT_4O: 'gpt-4o' as const,
+  GPT_4O_MINI: 'gpt-4o-mini' as const,
+  GPT_4_TURBO: 'gpt-4-turbo' as const,
+  GPT_3_5_TURBO: 'gpt-3.5-turbo' as const,
+  O1: 'o1' as const,
+  O1_MINI: 'o1-mini' as const,
+
+  // Anthropic
+  CLAUDE_3_5_SONNET: 'claude-3-5-sonnet-20241022' as const,
+  CLAUDE_3_5_HAIKU: 'claude-3-5-haiku-latest' as const,
+  CLAUDE_3_OPUS: 'claude-3-opus-latest' as const,
+
+  // Google
+  GEMINI_1_5_PRO: 'gemini-1.5-pro' as const,
+  GEMINI_1_5_FLASH: 'gemini-1.5-flash' as const,
+  GEMINI_2_0_FLASH: 'gemini-2.0-flash' as const,
+
+  // Mistral
+  MISTRAL_LARGE: 'mistral-large-latest' as const,
+  MISTRAL_SMALL: 'mistral-small-latest' as const,
+
+  // Others
+  LLAMA_3_3_70B: 'llama-3.3-70b-versatile' as const,
+  DEEPSEEK_V3: 'deepseek-chat' as const,
+  GROK_2: 'grok-2' as const,
+} as const;
+
+export type PopularModel = typeof POPULAR_MODELS[keyof typeof POPULAR_MODELS];
+
+// Type-safe model selector
+export function createModelSelector<T extends AISDKProvider>(provider: T) {
+  return {
+    getModels: () => getModelsByProvider(provider),
+    getChatModels: () => getModelsByProviderAndCategory(provider, 'chat'),
+    getEmbeddingModels: () => getModelsByProviderAndCategory(provider, 'embedding'),
+    getImageModels: () => getModelsByProviderAndCategory(provider, 'image'),
+    getTranscriptionModels: () => getModelsByProviderAndCategory(provider, 'transcription'),
+    getSpeechModels: () => getModelsByProviderAndCategory(provider, 'speech'),
+    isModelSupported: (model: string) => isModelSupported(provider, model),
+    getModelValue: (model: string) => getModelValue(provider, model),
+  };
+}
+
+// Model validation helpers
+export function validateModel(provider: AISDKProvider, model: string, category?: AISDKModelCategory): boolean {
+  const modelObj = ALL_MODELS.find(m => m.provider === provider && m.model === model);
+  if (!modelObj) return false;
+  if (category && modelObj.category !== category) return false;
+  return true;
+}
+
+export function assertModel(provider: AISDKProvider, model: string, category?: AISDKModelCategory): asserts model is string {
+  if (!validateModel(provider, model, category)) {
+    throw new Error(`Invalid model: ${model} for provider: ${provider}${category ? ` and category: ${category}` : ''}`);
+  }
+}
+
+// =============================================================================
+// NEW IMPROVED UTILITY FUNCTIONS
+// =============================================================================
+
+// Filter and search utilities
+export interface FilterOptions {
+  provider?: AISDKProvider;
+  category?: AISDKModelCategory;
+}
+
+export interface ModelInfo {
+  provider: AISDKProvider;
+  model: string;
+  category: AISDKModelCategory;
+  value: AISDKModelValue;
+}
+
+export type ModelsByProvider = Record<AISDKProvider, string[]>;
+export type ModelsByCategory = Record<AISDKModelCategory, string[]>;
+
+// Universal types
+export type AnyModelId = string & {};
+export type AnyProviderModel = AISDKModelValue;
+
+// Type definitions for provider collections
+export interface OpenAIModels {
+  chat: string[];
+  completion: string[];
+  embedding: string[];
+  image: string[];
+  transcription: string[];
+  speech: string[];
+}
+
+export interface AnthropicModels {
+  chat: string[];
+}
+
+export interface GoogleModels {
+  chat: string[];
+  embedding: string[];
+  image: string[];
+}
+
+export interface MistralModels {
+  chat: string[];
+  embedding: string[];
+}
+
+export type PopularModels = typeof POPULAR_MODELS;
+
+// Updated function signatures
+export function getModelInfo(model: string): ModelInfo | null {
+  const found = ALL_MODELS.find(m => m.model === model);
+  return found ? {
+    provider: found.provider,
+    model: found.model,
+    category: found.category,
+    value: found.value
+  } : null;
+}
+
+export function findModels(options: FilterOptions): AISDKModel[] {
+  return ALL_MODELS.filter(model => {
+    if (options.provider && model.provider !== options.provider) return false;
+    if (options.category && model.category !== options.category) return false;
+    return true;
+  });
+}
+
+export function isValidModel(model: string): boolean {
+  if (!model || typeof model !== 'string') return false;
+  return ALL_MODELS.some(m => m.model === model);
+}
+
+export function getModelsByProviders(providers: AISDKProvider[]): AISDKModel[] {
+  if (!providers || providers.length === 0) return [];
+  return ALL_MODELS.filter(m => providers.includes(m.provider));
+}
+
+export function getModelsByCategories(categories: AISDKModelCategory[]): AISDKModel[] {
+  if (!categories || categories.length === 0) return [];
+  return ALL_MODELS.filter(m => categories.includes(m.category));
+}
+
+export function getModelCount(options?: FilterOptions): number {
+  if (!options) return ALL_MODELS.length;
+  return findModels(options).length;
+}
+
+export function getProviderModels(provider: AISDKProvider): Record<string, string[]> {
+  const models = ALL_MODELS.filter(m => m.provider === provider);
+  const result: Record<string, string[]> = {};
+
+  models.forEach(model => {
+    if (!result[model.category]) {
+      result[model.category] = [];
+    }
+    result[model.category]!.push(model.model);
+  });
+
+  return result;
+}
+
+export function getCategoryModels(category: AISDKModelCategory): Record<string, string[]> {
+  const models = ALL_MODELS.filter(m => m.category === category);
+  const result: Record<string, string[]> = {};
+
+  models.forEach(model => {
+    if (!result[model.provider]) {
+      result[model.provider] = [];
+    }
+    result[model.provider]!.push(model.model);
+  });
+
+  return result;
+}

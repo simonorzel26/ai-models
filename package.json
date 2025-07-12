@@ -1,6 +1,6 @@
 {
   "name": "@simonorzel26/ai-models",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "AI model types extractor for @ai-sdk providers",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -107,7 +107,8 @@
   "files": [
     "dist/**/*",
     "src/extract-model-types.ts",
-    "README.md"
+    "README.md",
+    "STATS.md"
   ],
   "devDependencies": {
     "tsup": "^8.0.0",

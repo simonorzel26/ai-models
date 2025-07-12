@@ -93,6 +93,68 @@ jobs:
             echo "Model changes detected"
           fi
 
+      - name: Update documentation
+        if: steps.check-changes.outputs.has-changes == 'true' || steps.check-updates.outputs.needs-update == 'true'
+        run: |
+          # Build package to get accurate stats
+          bun run bundle
+
+          # Get current stats
+          TOTAL_MODELS=$(node -p "require('./dist/index.cjs').ALL_MODELS.length")
+          TOTAL_PROVIDERS=$(node -p "require('./dist/index.cjs').getProviders().length")
+          TOTAL_CATEGORIES=$(node -p "require('./dist/index.cjs').getCategories().length")
+
+          echo "📊 Current stats:"
+          echo "  Models: $TOTAL_MODELS"
+          echo "  Providers: $TOTAL_PROVIDERS"
+          echo "  Categories: $TOTAL_CATEGORIES"
+
+          # Update README with current stats
+          sed -i "s/- **Total Models**: Updated with latest AI SDK providers/- **Total Models**: $TOTAL_MODELS/" README.md
+          sed -i "s/- **Providers**: 28+ supported providers/- **Providers**: $TOTAL_PROVIDERS supported providers/" README.md
+          sed -i "s/- **Categories**: Chat, Embedding, Image, Speech, Transcription, etc./- **Categories**: $TOTAL_CATEGORIES categories (Chat, Embedding, Image, Speech, Transcription, etc.)/" README.md
+
+          # Create or update a stats file
+          cat > STATS.md << EOF
+          # AI Models Statistics
+
+          Last updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+          ## Current Statistics
+
+          - **Total Models**: $TOTAL_MODELS
+          - **Providers**: $TOTAL_PROVIDERS
+          - **Categories**: $TOTAL_CATEGORIES
+
+          ## Top Providers by Model Count
+
+          \`\`\`javascript
+          $(node -p "
+            const { ALL_MODELS } = require('./dist/index.cjs');
+            const counts = ALL_MODELS.reduce((acc, model) => {
+              acc[model.provider] = (acc[model.provider] || 0) + 1;
+              return acc;
+            }, {});
+            Object.entries(counts)
+              .sort(([,a], [,b]) => b - a)
+              .slice(0, 10)
+              .map(([provider, count]) => \`\${provider}: \${count}\`)
+              .join('\\n')
+          ")
+          \`\`\`
+
+          ## Categories
+
+          \`\`\`javascript
+          $(node -p "
+            const { getCategories } = require('./dist/index.cjs');
+            getCategories().join(', ')
+          ")
+          \`\`\`
+          EOF
+
+          echo "✅ Documentation updated with current stats"
+
       - name: Commit changes
         if: steps.check-changes.outputs.has-changes == 'true' || steps.check-updates.outputs.needs-update == 'true'
         run: |
@@ -107,11 +169,14 @@ jobs:
             git add bun.lock
           fi
 
+          # Add documentation files
+          git add README.md STATS.md
+
           # Create appropriate commit message
           if [[ "${{ steps.check-updates.outputs.needs-update }}" == "true" ]]; then
-            git commit -m "chore: update @ai-sdk dependencies and model types [skip ci]"
+            git commit -m "chore: update @ai-sdk dependencies, model types, and documentation [skip ci]"
           else
-            git commit -m "chore: update AI model types [skip ci]"
+            git commit -m "chore: update AI model types and documentation [skip ci]"
           fi
 
           git push
@@ -225,9 +290,9 @@ jobs:
             **Published**: `@simonorzel26/ai-models@${{ steps.new-version.outputs.version }}`
 
             ### 📊 Stats
-            - **Total Models**: Updated with latest AI SDK providers
-            - **Providers**: 28+ supported providers
-            - **Categories**: Chat, Embedding, Image, Speech, Transcription, etc.
+            - **Total Models**: $(node -p "require('./dist/index.cjs').ALL_MODELS.length")
+            - **Providers**: $(node -p "require('./dist/index.cjs').getProviders().length") supported providers
+            - **Categories**: $(node -p "require('./dist/index.cjs').getCategories().length") categories
 
             ### 🔄 Changes
             - ${{ steps.version-bump.outputs.reason }}
@@ -235,6 +300,7 @@ jobs:
             **What's New:**
             - Updated model types from latest Vercel AI SDK providers
             - Improved TypeScript type definitions and utility functions
+            - Updated documentation with current statistics
 
             **Versioning:**
             - 🟡 **Minor**: New @ai-sdk versions with models and features
@@ -262,6 +328,11 @@ jobs:
             // Access all models
             console.log(\`Total models: \${ALL_MODELS.length}\`);
             ```
+
+            ### 🔗 Links
+            - [Package on npm](https://www.npmjs.com/package/@simonorzel26/ai-models)
+            - [Statistics](https://github.com/simonorzel26/ai-models/blob/main/STATS.md)
+            - [Documentation](https://github.com/simonorzel26/ai-models#readme)
           draft: false
           prerelease: false
 
