@@ -109,11 +109,6 @@ jobs:
           echo "  Providers: $TOTAL_PROVIDERS"
           echo "  Categories: $TOTAL_CATEGORIES"
 
-          # Update README with current stats
-          sed -i "s/- **Total Models**: Updated with latest AI SDK providers/- **Total Models**: $TOTAL_MODELS/" README.md
-          sed -i "s/- **Providers**: 28+ supported providers/- **Providers**: $TOTAL_PROVIDERS supported providers/" README.md
-          sed -i "s/- **Categories**: Chat, Embedding, Image, Speech, Transcription, etc./- **Categories**: $TOTAL_CATEGORIES categories (Chat, Embedding, Image, Speech, Transcription, etc.)/" README.md
-
           # Create or update a stats file
           cat > STATS.md << EOF
           # AI Models Statistics
