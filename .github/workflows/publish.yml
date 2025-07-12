@@ -1,12 +1,8 @@
 name: Publish to npm
 
 on:
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - '**/*.md'
-      - '.gitignore'
-      - '.github/workflows/ci-cd.yml'
+  schedule:
+    - cron: '0 6 * * *' # Daily at 6 AM UTC
   workflow_dispatch:
 
 env:
@@ -43,33 +39,42 @@ jobs:
       - name: Check for @ai-sdk package updates
         id: check-updates
         run: |
-          echo "Checking if dependencies need updates..."
+          echo "Checking for @ai-sdk package updates..."
 
-          # Check if lockfile is older than 3 days (reasonable for AI SDK updates)
+          # Install current dependencies to ensure we have latest lockfile
+          bun install --frozen-lockfile
+
+          # Check for outdated @ai-sdk packages
+          OUTDATED_OUTPUT=$(bun outdated --json 2>/dev/null || echo "[]")
+
+          # Check if any @ai-sdk packages have updates available
           NEEDS_UPDATE=false
-          if [ -f bun.lock ]; then
-            LOCKFILE_AGE_DAYS=$((($(date +%s) - $(date -r bun.lock +%s 2>/dev/null || date -d "$(stat -c %y bun.lock)" +%s)) / 86400))
-
-            if [ "$LOCKFILE_AGE_DAYS" -gt 3 ]; then
-              echo "⚠️  Lockfile is $LOCKFILE_AGE_DAYS days old - updating dependencies"
-              echo "📅 Last modified: $(date -r bun.lock 2>/dev/null || stat -c %y bun.lock)"
-              NEEDS_UPDATE=true
-            else
-              echo "✅ Lockfile is recent ($LOCKFILE_AGE_DAYS days old)"
-            fi
-          else
-            echo "⚠️  No lockfile found - will create new one"
+          if echo "$OUTDATED_OUTPUT" | jq -e '.[] | select(.name | startswith("@ai-sdk/"))' > /dev/null 2>&1; then
+            echo "🔄 Found @ai-sdk package updates:"
+            echo "$OUTDATED_OUTPUT" | jq -r '.[] | select(.name | startswith("@ai-sdk/")) | "  - \(.name): \(.current) → \(.latest)"'
             NEEDS_UPDATE=true
+          else
+            echo "✅ All @ai-sdk packages are up to date"
           fi
 
           echo "needs-update=$NEEDS_UPDATE" >> $GITHUB_OUTPUT
 
-      - name: Update dependencies
+      - name: Update @ai-sdk dependencies
         if: steps.check-updates.outputs.needs-update == 'true'
         run: |
           echo "🔄 Updating @ai-sdk dependencies to latest versions..."
-          bun update
-          echo "✅ Dependencies updated"
+
+          # Get list of @ai-sdk packages that need updates
+          OUTDATED_OUTPUT=$(bun outdated --json 2>/dev/null || echo "[]")
+          AI_SDK_PACKAGES=$(echo "$OUTDATED_OUTPUT" | jq -r '.[] | select(.name | startswith("@ai-sdk/")) | .name')
+
+          # Update each @ai-sdk package individually
+          for package in $AI_SDK_PACKAGES; do
+            echo "Updating $package..."
+            bun update $package
+          done
+
+          echo "✅ @ai-sdk dependencies updated"
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -152,18 +157,30 @@ jobs:
         id: version-bump
         run: |
           if [[ "${{ steps.check-updates.outputs.needs-update }}" == "true" ]]; then
-            echo "bump=major" >> $GITHUB_OUTPUT
-            echo "reason=@ai-sdk dependencies updated - bumping major version for breaking changes"
-          else
             echo "bump=minor" >> $GITHUB_OUTPUT
+            echo "reason=@ai-sdk dependencies updated with new models and features"
+          else
+            echo "bump=patch" >> $GITHUB_OUTPUT
             if [[ "${{ steps.check-changes.outputs.has-changes }}" == "true" ]]; then
-              echo "reason=Model types updated - bumping minor version"
+              echo "reason=Model types updated"
             else
-              echo "reason=Code improvements - bumping minor version"
+              echo "reason=Maintenance release - no changes detected"
             fi
           fi
 
+      - name: Check if publishing needed
+        id: should-publish
+        run: |
+          if [[ "${{ steps.check-changes.outputs.has-changes }}" == "true" ]] || [[ "${{ steps.check-updates.outputs.needs-update }}" == "true" ]]; then
+            echo "should-publish=true" >> $GITHUB_OUTPUT
+            echo "✅ Publishing needed - changes detected"
+          else
+            echo "should-publish=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  No changes detected - skipping publish"
+          fi
+
       - name: Bump version
+        if: steps.should-publish.outputs.should-publish == 'true'
         id: new-version
         run: |
           NEW_VERSION=$(npm version ${{ steps.version-bump.outputs.bump }} --no-git-tag-version)
@@ -171,6 +188,7 @@ jobs:
           echo "New version: $NEW_VERSION"
 
       - name: Update package files
+        if: steps.should-publish.outputs.should-publish == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -178,19 +196,23 @@ jobs:
           git commit -m "chore: bump version to ${{ steps.new-version.outputs.version }} [skip ci]"
 
       - name: Create git tag
+        if: steps.should-publish.outputs.should-publish == 'true'
         run: |
           git tag ${{ steps.new-version.outputs.version }}
           git push origin ${{ steps.new-version.outputs.version }}
 
       - name: Push version bump
+        if: steps.should-publish.outputs.should-publish == 'true'
         run: git push
 
       - name: Publish to npm
+        if: steps.should-publish.outputs.should-publish == 'true'
         run: npm publish --access public --provenance=false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
+        if: steps.should-publish.outputs.should-publish == 'true'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -215,9 +237,8 @@ jobs:
             - Improved TypeScript type definitions and utility functions
 
             **Versioning:**
-            - 🔴 **Major**: Breaking changes from @ai-sdk dependency updates
-            - 🟡 **Minor**: New models, features, or improvements (default)
-            - 🟢 **Patch**: Bug fixes only
+            - 🟡 **Minor**: New @ai-sdk versions with models and features
+            - 🟢 **Patch**: Model type updates or maintenance releases
 
             ### 📦 Installation
             ```bash
@@ -245,9 +266,17 @@ jobs:
           prerelease: false
 
       - name: Notify success
+        if: steps.should-publish.outputs.should-publish == 'true'
         run: |
           echo "🎉 Successfully published @simonorzel26/ai-models@${{ steps.new-version.outputs.version }} to npm!"
           echo "📦 Package: https://www.npmjs.com/package/@simonorzel26/ai-models"
           echo "🏷️ Tag: ${{ steps.new-version.outputs.version }}"
           echo "📊 Total Models: $(node -p "require('./dist/index.cjs').ALL_MODELS.length")"
           echo "🏢 Total Providers: $(node -p "require('./dist/index.cjs').getProviders().length")"
+
+      - name: Notify no changes
+        if: steps.should-publish.outputs.should-publish == 'false'
+        run: |
+          echo "ℹ️  No changes detected - skipping publish"
+          echo "✅ All @ai-sdk packages are up to date"
+          echo "✅ No model type changes detected"
