@@ -1,6 +1,6 @@
 {
   "name": "@simonorzel26/ai-models",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "AI model types extractor for @ai-sdk providers",
   "type": "module",
   "main": "./dist/index.cjs",
