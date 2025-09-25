@@ -1,6 +1,6 @@
 # AI Models Statistics
 
-Last updated: 2025-08-28 06:02:23 UTC
+Last updated: 2025-09-25 06:02:40 UTC
 
 ## Current Statistics
 
@@ -14,8 +14,8 @@ Last updated: 2025-08-28 06:02:23 UTC
 @langdb/vercel-provider: 304
 ollama-ai-provider: 199
 deepinfra: 89
-togetherai: 57
 openai: 57
+togetherai: 57
 amazon-bedrock: 38
 deepgram: 32
 google: 27
@@ -26,5 +26,5 @@ xai: 20
 ## Categories
 
 ```javascript
-transcription, chat, embedding, image, completion, speech
+chat, embedding, image, speech, transcription, completion
 ```
