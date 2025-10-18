@@ -3,33 +3,29 @@
  * This file is auto-generated - do not edit manually
  */
 
-// CEREBRAS Models
-export type CerebrasCerebrasChatModelId = 'llama3.1-8b' | 'llama3.1-70b' | 'llama-3.3-70b' | (string & {});
+// FIREWORKS Models
+export type FireworksFireworksChatModelId = 'accounts/fireworks/models/deepseek-v3' | 'accounts/fireworks/models/llama-v3p3-70b-instruct' | 'accounts/fireworks/models/llama-v3p2-3b-instruct' | 'accounts/fireworks/models/llama-v3p1-405b-instruct' | 'accounts/fireworks/models/llama-v3p1-8b-instruct' | 'accounts/fireworks/models/mixtral-8x7b-instruct' | 'accounts/fireworks/models/mixtral-8x22b-instruct' | 'accounts/fireworks/models/mixtral-8x7b-instruct-hf' | 'accounts/fireworks/models/qwen2p5-coder-32b-instruct' | 'accounts/fireworks/models/qwen2p5-72b-instruct' | 'accounts/fireworks/models/qwen-qwq-32b-preview' | 'accounts/fireworks/models/qwen2-vl-72b-instruct' | 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct' | 'accounts/fireworks/models/qwq-32b' | 'accounts/fireworks/models/yi-large' | (string & {});
+export type FireworksFireworksCompletionModelId = 'accounts/fireworks/models/llama-v3-8b-instruct' | 'accounts/fireworks/models/llama-v2-34b-code' | (string & {});
+export type FireworksFireworksEmbeddingModelId = 'nomic-ai/nomic-embed-text-v1.5' | (string & {});
+export type FireworksFireworksImageModelId = 'accounts/fireworks/models/flux-1-dev-fp8' | 'accounts/fireworks/models/flux-1-schnell-fp8' | 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic' | 'accounts/fireworks/models/japanese-stable-diffusion-xl' | 'accounts/fireworks/models/playground-v2-1024px-aesthetic' | 'accounts/fireworks/models/SSD-1B' | 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0' | (string & {});
+
+// DEEPGRAM Models
+export type DeepgramDeepgramTranscriptionModelId = 'base' | 'base-general' | 'base-meeting' | 'base-phonecall' | 'base-finance' | 'base-conversationalai' | 'base-voicemail' | 'base-video' | 'enhanced' | 'enhanced-general' | 'enhanced-meeting' | 'enhanced-phonecall' | 'enhanced-finance' | 'nova' | 'nova-general' | 'nova-phonecall' | 'nova-medical' | 'nova-2' | 'nova-2-general' | 'nova-2-meeting' | 'nova-2-phonecall' | 'nova-2-finance' | 'nova-2-conversationalai' | 'nova-2-voicemail' | 'nova-2-video' | 'nova-2-medical' | 'nova-2-drivethru' | 'nova-2-automotive' | 'nova-2-atc' | 'nova-3' | 'nova-3-general' | 'nova-3-medical' | (string & {});
+
+// MISTRAL Models
+export type MistralMistralChatModelId = 'ministral-3b-latest' | 'ministral-8b-latest' | 'mistral-large-latest' | 'mistral-small-latest' | 'pixtral-large-latest' | 'pixtral-12b-2409' | 'open-mistral-7b' | 'open-mixtral-8x7b' | 'open-mixtral-8x22b' | (string & {});
+export type MistralMistralEmbeddingModelId = 'mistral-embed' | (string & {});
+
+// LMNT Models
+export type LmntLMNTSpeechModelId = 'aurora' | 'blizzard' | (string & {});
 
 // AMAZON-BEDROCK Models
 export type AmazonBedrockBedrockChatModelId = 'amazon.titan-tg1-large' | 'amazon.titan-text-express-v1' | 'anthropic.claude-v2' | 'anthropic.claude-v2:1' | 'anthropic.claude-instant-v1' | 'anthropic.claude-sonnet-4-20250514-v1:0' | 'anthropic.claude-opus-4-20250514-v1:0' | 'anthropic.claude-3-7-sonnet-20250219-v1:0' | 'anthropic.claude-3-5-sonnet-20240620-v1:0' | 'anthropic.claude-3-5-sonnet-20241022-v2:0' | 'anthropic.claude-3-5-haiku-20241022-v1:0' | 'anthropic.claude-3-sonnet-20240229-v1:0' | 'anthropic.claude-3-haiku-20240307-v1:0' | 'anthropic.claude-3-opus-20240229-v1:0' | 'cohere.command-text-v14' | 'cohere.command-light-text-v14' | 'cohere.command-r-v1:0' | 'cohere.command-r-plus-v1:0' | 'meta.llama3-70b-instruct-v1:0' | 'meta.llama3-8b-instruct-v1:0' | 'meta.llama3-1-405b-instruct-v1:0' | 'meta.llama3-1-70b-instruct-v1:0' | 'meta.llama3-1-8b-instruct-v1:0' | 'meta.llama3-2-11b-instruct-v1:0' | 'meta.llama3-2-1b-instruct-v1:0' | 'meta.llama3-2-3b-instruct-v1:0' | 'meta.llama3-2-90b-instruct-v1:0' | 'mistral.mistral-7b-instruct-v0:2' | 'mistral.mixtral-8x7b-instruct-v0:1' | 'mistral.mistral-large-2402-v1:0' | 'mistral.mistral-small-2402-v1:0' | 'amazon.titan-text-express-v1' | 'amazon.titan-text-lite-v1' | (string & {});
 export type AmazonBedrockBedrockEmbeddingModelId = 'amazon.titan-embed-text-v1' | 'amazon.titan-embed-text-v2:0' | 'cohere.embed-english-v3' | 'cohere.embed-multilingual-v3' | (string & {});
 export type AmazonBedrockBedrockImageModelId = 'amazon.nova-canvas-v1:0' | (string & {});
 
-// LMNT Models
-export type LmntLMNTSpeechModelId = 'aurora' | 'blizzard' | (string & {});
-
 // ANTHROPIC Models
 export type AnthropicAnthropicMessagesModelId = 'claude-4-opus-20250514' | 'claude-4-sonnet-20250514' | 'claude-3-7-sonnet-20250219' | 'claude-3-5-sonnet-latest' | 'claude-3-5-sonnet-20241022' | 'claude-3-5-sonnet-20240620' | 'claude-3-5-haiku-latest' | 'claude-3-5-haiku-20241022' | 'claude-3-opus-latest' | 'claude-3-opus-20240229' | 'claude-3-sonnet-20240229' | 'claude-3-haiku-20240307' | (string & {});
-
-// DEEPGRAM Models
-export type DeepgramDeepgramTranscriptionModelId = 'base' | 'base-general' | 'base-meeting' | 'base-phonecall' | 'base-finance' | 'base-conversationalai' | 'base-voicemail' | 'base-video' | 'enhanced' | 'enhanced-general' | 'enhanced-meeting' | 'enhanced-phonecall' | 'enhanced-finance' | 'nova' | 'nova-general' | 'nova-phonecall' | 'nova-medical' | 'nova-2' | 'nova-2-general' | 'nova-2-meeting' | 'nova-2-phonecall' | 'nova-2-finance' | 'nova-2-conversationalai' | 'nova-2-voicemail' | 'nova-2-video' | 'nova-2-medical' | 'nova-2-drivethru' | 'nova-2-automotive' | 'nova-2-atc' | 'nova-3' | 'nova-3-general' | 'nova-3-medical' | (string & {});
-
-// ASSEMBLYAI Models
-export type AssemblyaiAssemblyAITranscriptionModelId = 'best' | 'nano' | (string & {});
-
-// DEEPINFRA Models
-export type DeepinfraDeepInfraChatModelId = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8' | 'meta-llama/Llama-4-Scout-17B-16E-Instruct' | 'meta-llama/Llama-3.3-70B-Instruct' | 'meta-llama/Llama-3.3-70B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-70B-Instruct' | 'meta-llama/Meta-Llama-3.1-8B-Instruct' | 'meta-llama/Meta-Llama-3.1-405B-Instruct' | 'Qwen/QwQ-32B-Preview' | 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo' | 'Qwen/Qwen2.5-Coder-32B-Instruct' | 'nvidia/Llama-3.1-Nemotron-70B-Instruct' | 'Qwen/Qwen2.5-72B-Instruct' | 'meta-llama/Llama-3.2-90B-Vision-Instruct' | 'meta-llama/Llama-3.2-11B-Vision-Instruct' | 'microsoft/WizardLM-2-8x22B' | '01-ai/Yi-34B-Chat' | 'Austism/chronos-hermes-13b-v2' | 'Gryphe/MythoMax-L2-13b' | 'Gryphe/MythoMax-L2-13b-turbo' | 'HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1' | 'KoboldAI/LLaMA2-13B-Tiefighter' | 'NousResearch/Hermes-3-Llama-3.1-405B' | 'Phind/Phind-CodeLlama-34B-v2' | 'Qwen/Qwen2-72B-Instruct' | 'Qwen/Qwen2-7B-Instruct' | 'Qwen/Qwen2.5-7B-Instruct' | 'Qwen/Qwen2.5-Coder-7B' | 'Sao10K/L3-70B-Euryale-v2.1' | 'Sao10K/L3-8B-Lunaris-v1' | 'Sao10K/L3.1-70B-Euryale-v2.2' | 'bigcode/starcoder2-15b' | 'bigcode/starcoder2-15b-instruct-v0.1' | 'codellama/CodeLlama-34b-Instruct-hf' | 'codellama/CodeLlama-70b-Instruct-hf' | 'cognitivecomputations/dolphin-2.6-mixtral-8x7b' | 'cognitivecomputations/dolphin-2.9.1-llama-3-70b' | 'databricks/dbrx-instruct' | 'deepinfra/airoboros-70b' | 'deepseek-ai/DeepSeek-V3' | 'google/codegemma-7b-it' | 'google/gemma-1.1-7b-it' | 'google/gemma-2-27b-it' | 'google/gemma-2-9b-it' | 'lizpreciatior/lzlv_70b_fp16_hf' | 'mattshumer/Reflection-Llama-3.1-70B' | 'meta-llama/Llama-2-13b-chat-hf' | 'meta-llama/Llama-2-70b-chat-hf' | 'meta-llama/Llama-2-7b-chat-hf' | 'meta-llama/Llama-3.2-1B-Instruct' | 'meta-llama/Llama-3.2-3B-Instruct' | 'meta-llama/Meta-Llama-3-70B-Instruct' | 'meta-llama/Meta-Llama-3-8B-Instruct' | 'microsoft/Phi-3-medium-4k-instruct' | 'microsoft/WizardLM-2-7B' | 'mistralai/Mistral-7B-Instruct-v0.1' | 'mistralai/Mistral-7B-Instruct-v0.2' | 'mistralai/Mistral-7B-Instruct-v0.3' | 'mistralai/Mistral-Nemo-Instruct-2407' | 'mistralai/Mixtral-8x22B-Instruct-v0.1' | 'mistralai/Mixtral-8x22B-v0.1' | 'mistralai/Mixtral-8x7B-Instruct-v0.1' | 'nvidia/Nemotron-4-340B-Instruct' | 'openbmb/MiniCPM-Llama3-V-2_5' | 'openchat/openchat-3.6-8b' | 'openchat/openchat_3.5' | (string & {});
-export type DeepinfraDeepInfraEmbeddingModelId = 'BAAI/bge-base-en-v1.5' | 'BAAI/bge-large-en-v1.5' | 'BAAI/bge-m3' | 'intfloat/e5-base-v2' | 'intfloat/e5-large-v2' | 'intfloat/multilingual-e5-large' | 'sentence-transformers/all-MiniLM-L12-v2' | 'sentence-transformers/all-MiniLM-L6-v2' | 'sentence-transformers/all-mpnet-base-v2' | 'sentence-transformers/clip-ViT-B-32' | 'sentence-transformers/clip-ViT-B-32-multilingual-v1' | 'sentence-transformers/multi-qa-mpnet-base-dot-v1' | 'sentence-transformers/paraphrase-MiniLM-L6-v2' | 'shibing624/text2vec-base-chinese' | 'thenlper/gte-base' | 'thenlper/gte-large' | (string & {});
-export type DeepinfraDeepInfraImageModelId = 'stabilityai/sd3.5' | 'black-forest-labs/FLUX-1.1-pro' | 'black-forest-labs/FLUX-1-schnell' | 'black-forest-labs/FLUX-1-dev' | 'black-forest-labs/FLUX-pro' | 'stabilityai/sd3.5-medium' | 'stabilityai/sdxl-turbo' | (string & {});
-
-// PERPLEXITY Models
-export type PerplexityPerplexityLanguageModelId = 'sonar-deep-research' | 'sonar-reasoning-pro' | 'sonar-reasoning' | 'sonar-pro' | 'sonar' | (string & {});
 
 // OPENAI Models
 export type OpenaiOpenAIChatModelId = 'o1' | 'o1-2024-12-17' | 'o1-mini' | 'o1-mini-2024-09-12' | 'o1-preview' | 'o1-preview-2024-09-12' | 'o3-mini' | 'o3-mini-2025-01-31' | 'o3' | 'o3-2025-04-16' | 'o4-mini' | 'o4-mini-2025-04-16' | 'gpt-4.1' | 'gpt-4.1-2025-04-14' | 'gpt-4.1-mini' | 'gpt-4.1-mini-2025-04-14' | 'gpt-4.1-nano' | 'gpt-4.1-nano-2025-04-14' | 'gpt-4o' | 'gpt-4o-2024-05-13' | 'gpt-4o-2024-08-06' | 'gpt-4o-2024-11-20' | 'gpt-4o-audio-preview' | 'gpt-4o-audio-preview-2024-10-01' | 'gpt-4o-audio-preview-2024-12-17' | 'gpt-4o-search-preview' | 'gpt-4o-search-preview-2025-03-11' | 'gpt-4o-mini-search-preview' | 'gpt-4o-mini-search-preview-2025-03-11' | 'gpt-4o-mini' | 'gpt-4o-mini-2024-07-18' | 'gpt-4-turbo' | 'gpt-4-turbo-2024-04-09' | 'gpt-4-turbo-preview' | 'gpt-4-0125-preview' | 'gpt-4-1106-preview' | 'gpt-4' | 'gpt-4-0613' | 'gpt-4.5-preview' | 'gpt-4.5-preview-2025-02-27' | 'gpt-3.5-turbo-0125' | 'gpt-3.5-turbo' | 'gpt-3.5-turbo-1106' | 'chatgpt-4o-latest' | (string & {});
@@ -39,16 +35,31 @@ export type OpenaiOpenAIImageModelId = 'gpt-image-1' | 'dall-e-3' | 'dall-e-2' |
 export type OpenaiOpenAITranscriptionModelId = 'whisper-1' | 'gpt-4o-mini-transcribe' | 'gpt-4o-transcribe' | (string & {});
 export type OpenaiOpenAISpeechModelId = 'tts-1' | 'tts-1-hd' | 'gpt-4o-mini-tts' | (string & {});
 
+// ELEVENLABS Models
+export type ElevenlabsElevenLabsTranscriptionModelId = 'scribe_v1' | 'scribe_v1_experimental' | (string & {});
+
 // GOOGLE-VERTEX Models
 export type GoogleVertexGoogleVertexImageModelId = 'imagen-3.0-generate-001' | 'imagen-3.0-generate-002' | 'imagen-3.0-fast-generate-001' | (string & {});
 export type GoogleVertexGoogleVertexModelId = 'gemini-2.0-flash-001' | 'gemini-1.5-flash' | 'gemini-1.5-flash-001' | 'gemini-1.5-flash-002' | 'gemini-1.5-pro' | 'gemini-1.5-pro-001' | 'gemini-1.5-pro-002' | 'gemini-1.0-pro-001' | 'gemini-1.0-pro-vision-001' | 'gemini-1.0-pro' | 'gemini-1.0-pro-001' | 'gemini-1.0-pro-002' | 'gemini-2.0-flash-lite-preview-02-05' | 'gemini-2.0-pro-exp-02-05' | 'gemini-2.0-flash-exp' | (string & {});
+
+// ASSEMBLYAI Models
+export type AssemblyaiAssemblyAITranscriptionModelId = 'best' | 'nano' | (string & {});
+
+// DEEPINFRA Models
+export type DeepinfraDeepInfraChatModelId = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8' | 'meta-llama/Llama-4-Scout-17B-16E-Instruct' | 'meta-llama/Llama-3.3-70B-Instruct' | 'meta-llama/Llama-3.3-70B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-70B-Instruct' | 'meta-llama/Meta-Llama-3.1-8B-Instruct' | 'meta-llama/Meta-Llama-3.1-405B-Instruct' | 'Qwen/QwQ-32B-Preview' | 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo' | 'Qwen/Qwen2.5-Coder-32B-Instruct' | 'nvidia/Llama-3.1-Nemotron-70B-Instruct' | 'Qwen/Qwen2.5-72B-Instruct' | 'meta-llama/Llama-3.2-90B-Vision-Instruct' | 'meta-llama/Llama-3.2-11B-Vision-Instruct' | 'microsoft/WizardLM-2-8x22B' | '01-ai/Yi-34B-Chat' | 'Austism/chronos-hermes-13b-v2' | 'Gryphe/MythoMax-L2-13b' | 'Gryphe/MythoMax-L2-13b-turbo' | 'HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1' | 'KoboldAI/LLaMA2-13B-Tiefighter' | 'NousResearch/Hermes-3-Llama-3.1-405B' | 'Phind/Phind-CodeLlama-34B-v2' | 'Qwen/Qwen2-72B-Instruct' | 'Qwen/Qwen2-7B-Instruct' | 'Qwen/Qwen2.5-7B-Instruct' | 'Qwen/Qwen2.5-Coder-7B' | 'Sao10K/L3-70B-Euryale-v2.1' | 'Sao10K/L3-8B-Lunaris-v1' | 'Sao10K/L3.1-70B-Euryale-v2.2' | 'bigcode/starcoder2-15b' | 'bigcode/starcoder2-15b-instruct-v0.1' | 'codellama/CodeLlama-34b-Instruct-hf' | 'codellama/CodeLlama-70b-Instruct-hf' | 'cognitivecomputations/dolphin-2.6-mixtral-8x7b' | 'cognitivecomputations/dolphin-2.9.1-llama-3-70b' | 'databricks/dbrx-instruct' | 'deepinfra/airoboros-70b' | 'deepseek-ai/DeepSeek-V3' | 'google/codegemma-7b-it' | 'google/gemma-1.1-7b-it' | 'google/gemma-2-27b-it' | 'google/gemma-2-9b-it' | 'lizpreciatior/lzlv_70b_fp16_hf' | 'mattshumer/Reflection-Llama-3.1-70B' | 'meta-llama/Llama-2-13b-chat-hf' | 'meta-llama/Llama-2-70b-chat-hf' | 'meta-llama/Llama-2-7b-chat-hf' | 'meta-llama/Llama-3.2-1B-Instruct' | 'meta-llama/Llama-3.2-3B-Instruct' | 'meta-llama/Meta-Llama-3-70B-Instruct' | 'meta-llama/Meta-Llama-3-8B-Instruct' | 'microsoft/Phi-3-medium-4k-instruct' | 'microsoft/WizardLM-2-7B' | 'mistralai/Mistral-7B-Instruct-v0.1' | 'mistralai/Mistral-7B-Instruct-v0.2' | 'mistralai/Mistral-7B-Instruct-v0.3' | 'mistralai/Mistral-Nemo-Instruct-2407' | 'mistralai/Mixtral-8x22B-Instruct-v0.1' | 'mistralai/Mixtral-8x22B-v0.1' | 'mistralai/Mixtral-8x7B-Instruct-v0.1' | 'nvidia/Nemotron-4-340B-Instruct' | 'openbmb/MiniCPM-Llama3-V-2_5' | 'openchat/openchat-3.6-8b' | 'openchat/openchat_3.5' | (string & {});
+export type DeepinfraDeepInfraEmbeddingModelId = 'BAAI/bge-base-en-v1.5' | 'BAAI/bge-large-en-v1.5' | 'BAAI/bge-m3' | 'intfloat/e5-base-v2' | 'intfloat/e5-large-v2' | 'intfloat/multilingual-e5-large' | 'sentence-transformers/all-MiniLM-L12-v2' | 'sentence-transformers/all-MiniLM-L6-v2' | 'sentence-transformers/all-mpnet-base-v2' | 'sentence-transformers/clip-ViT-B-32' | 'sentence-transformers/clip-ViT-B-32-multilingual-v1' | 'sentence-transformers/multi-qa-mpnet-base-dot-v1' | 'sentence-transformers/paraphrase-MiniLM-L6-v2' | 'shibing624/text2vec-base-chinese' | 'thenlper/gte-base' | 'thenlper/gte-large' | (string & {});
+export type DeepinfraDeepInfraImageModelId = 'stabilityai/sd3.5' | 'black-forest-labs/FLUX-1.1-pro' | 'black-forest-labs/FLUX-1-schnell' | 'black-forest-labs/FLUX-1-dev' | 'black-forest-labs/FLUX-pro' | 'stabilityai/sd3.5-medium' | 'stabilityai/sdxl-turbo' | (string & {});
+
+// GROQ Models
+export type GroqGroqChatModelId = 'gemma2-9b-it' | 'llama-3.3-70b-versatile' | 'llama-3.1-8b-instant' | 'llama-guard-3-8b' | 'llama3-70b-8192' | 'llama3-8b-8192' | 'mixtral-8x7b-32768' | 'meta-llama/llama-4-scout-17b-16e-instruct' | 'qwen-qwq-32b' | 'mistral-saba-24b' | 'qwen-2.5-32b' | 'deepseek-r1-distill-qwen-32b' | 'deepseek-r1-distill-llama-70b' | (string & {});
+export type GroqGroqTranscriptionModelId = 'whisper-large-v3-turbo' | 'distil-whisper-large-v3-en' | 'whisper-large-v3' | (string & {});
 
 // GOOGLE Models
 export type GoogleGoogleGenerativeAIModelId = 'gemini-1.5-flash' | 'gemini-1.5-flash-latest' | 'gemini-1.5-flash-001' | 'gemini-1.5-flash-002' | 'gemini-1.5-flash-8b' | 'gemini-1.5-flash-8b-latest' | 'gemini-1.5-flash-8b-001' | 'gemini-1.5-pro' | 'gemini-1.5-pro-latest' | 'gemini-1.5-pro-001' | 'gemini-1.5-pro-002' | 'gemini-2.0-flash' | 'gemini-2.0-flash-001' | 'gemini-2.0-flash-live-001' | 'gemini-2.0-flash-lite' | 'gemini-2.0-pro-exp-02-05' | 'gemini-2.0-flash-thinking-exp-01-21' | 'gemini-2.0-flash-exp' | 'gemini-2.5-pro' | 'gemini-2.5-flash' | 'gemini-2.5-pro-exp-03-25' | 'gemini-2.5-pro-preview-05-06' | 'gemini-2.5-flash-preview-04-17' | 'gemini-exp-1206' | 'gemma-3-27b-it' | 'learnlm-1.5-pro-experimental' | (string & {});
 export type GoogleGoogleGenerativeAIEmbeddingModelId = 'text-embedding-004' | (string & {});
 
-// ELEVENLABS Models
-export type ElevenlabsElevenLabsTranscriptionModelId = 'scribe_v1' | 'scribe_v1_experimental' | (string & {});
+// REVAI Models
+export type RevaiRevaiTranscriptionModelId = 'machine' | 'low_cost' | 'fusion' | (string & {});
 
 // TOGETHERAI Models
 export type TogetheraiTogetherAIChatModelId = 'meta-llama/Llama-3.3-70B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3-8B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3-70B-Instruct-Turbo' | 'meta-llama/Llama-3.2-3B-Instruct-Turbo' | 'meta-llama/Meta-Llama-3-8B-Instruct-Lite' | 'meta-llama/Meta-Llama-3-70B-Instruct-Lite' | 'meta-llama/Llama-3-8b-chat-hf' | 'meta-llama/Llama-3-70b-chat-hf' | 'nvidia/Llama-3.1-Nemotron-70B-Instruct-HF' | 'Qwen/Qwen2.5-Coder-32B-Instruct' | 'Qwen/QwQ-32B-Preview' | 'microsoft/WizardLM-2-8x22B' | 'google/gemma-2-27b-it' | 'google/gemma-2-9b-it' | 'databricks/dbrx-instruct' | 'deepseek-ai/deepseek-llm-67b-chat' | 'deepseek-ai/DeepSeek-V3' | 'google/gemma-2b-it' | 'Gryphe/MythoMax-L2-13b' | 'meta-llama/Llama-2-13b-chat-hf' | 'mistralai/Mistral-7B-Instruct-v0.1' | 'mistralai/Mistral-7B-Instruct-v0.2' | 'mistralai/Mistral-7B-Instruct-v0.3' | 'mistralai/Mixtral-8x7B-Instruct-v0.1' | 'mistralai/Mixtral-8x22B-Instruct-v0.1' | 'NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO' | 'Qwen/Qwen2.5-7B-Instruct-Turbo' | 'Qwen/Qwen2.5-72B-Instruct-Turbo' | 'Qwen/Qwen2-72B-Instruct' | 'upstage/SOLAR-10.7B-Instruct-v1.0' | (string & {});
@@ -56,29 +67,18 @@ export type TogetheraiTogetherAIEmbeddingModelId = 'togethercomputer/m2-bert-80M
 export type TogetheraiTogetherAICompletionModelId = 'meta-llama/Llama-2-70b-hf' | 'mistralai/Mistral-7B-v0.1' | 'mistralai/Mixtral-8x7B-v0.1' | 'Meta-Llama/Llama-Guard-7b' | 'codellama/CodeLlama-34b-Instruct-hf' | 'Qwen/Qwen2.5-Coder-32B-Instruct' | (string & {});
 export type TogetheraiTogetherAIImageModelId = 'stabilityai/stable-diffusion-xl-base-1.0' | 'black-forest-labs/FLUX.1-dev' | 'black-forest-labs/FLUX.1-dev-lora' | 'black-forest-labs/FLUX.1-schnell' | 'black-forest-labs/FLUX.1-canny' | 'black-forest-labs/FLUX.1-depth' | 'black-forest-labs/FLUX.1-redux' | 'black-forest-labs/FLUX.1.1-pro' | 'black-forest-labs/FLUX.1-pro' | 'black-forest-labs/FLUX.1-schnell-Free' | (string & {});
 
-// DEEPSEEK Models
-export type DeepseekDeepSeekChatModelId = 'deepseek-chat' | 'deepseek-reasoner' | (string & {});
+// CEREBRAS Models
+export type CerebrasCerebrasChatModelId = 'llama3.1-8b' | 'llama3.1-70b' | 'llama-3.3-70b' | (string & {});
 
-// MISTRAL Models
-export type MistralMistralChatModelId = 'ministral-3b-latest' | 'ministral-8b-latest' | 'mistral-large-latest' | 'mistral-small-latest' | 'pixtral-large-latest' | 'pixtral-12b-2409' | 'open-mistral-7b' | 'open-mixtral-8x7b' | 'open-mixtral-8x22b' | (string & {});
-export type MistralMistralEmbeddingModelId = 'mistral-embed' | (string & {});
-
-// FIREWORKS Models
-export type FireworksFireworksChatModelId = 'accounts/fireworks/models/deepseek-v3' | 'accounts/fireworks/models/llama-v3p3-70b-instruct' | 'accounts/fireworks/models/llama-v3p2-3b-instruct' | 'accounts/fireworks/models/llama-v3p1-405b-instruct' | 'accounts/fireworks/models/llama-v3p1-8b-instruct' | 'accounts/fireworks/models/mixtral-8x7b-instruct' | 'accounts/fireworks/models/mixtral-8x22b-instruct' | 'accounts/fireworks/models/mixtral-8x7b-instruct-hf' | 'accounts/fireworks/models/qwen2p5-coder-32b-instruct' | 'accounts/fireworks/models/qwen2p5-72b-instruct' | 'accounts/fireworks/models/qwen-qwq-32b-preview' | 'accounts/fireworks/models/qwen2-vl-72b-instruct' | 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct' | 'accounts/fireworks/models/qwq-32b' | 'accounts/fireworks/models/yi-large' | (string & {});
-export type FireworksFireworksCompletionModelId = 'accounts/fireworks/models/llama-v3-8b-instruct' | 'accounts/fireworks/models/llama-v2-34b-code' | (string & {});
-export type FireworksFireworksEmbeddingModelId = 'nomic-ai/nomic-embed-text-v1.5' | (string & {});
-export type FireworksFireworksImageModelId = 'accounts/fireworks/models/flux-1-dev-fp8' | 'accounts/fireworks/models/flux-1-schnell-fp8' | 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic' | 'accounts/fireworks/models/japanese-stable-diffusion-xl' | 'accounts/fireworks/models/playground-v2-1024px-aesthetic' | 'accounts/fireworks/models/SSD-1B' | 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0' | (string & {});
-
-// REVAI Models
-export type RevaiRevaiTranscriptionModelId = 'machine' | 'low_cost' | 'fusion' | (string & {});
-
-// GROQ Models
-export type GroqGroqChatModelId = 'gemma2-9b-it' | 'llama-3.3-70b-versatile' | 'llama-3.1-8b-instant' | 'llama-guard-3-8b' | 'llama3-70b-8192' | 'llama3-8b-8192' | 'mixtral-8x7b-32768' | 'meta-llama/llama-4-scout-17b-16e-instruct' | 'qwen-qwq-32b' | 'mistral-saba-24b' | 'qwen-2.5-32b' | 'deepseek-r1-distill-qwen-32b' | 'deepseek-r1-distill-llama-70b' | (string & {});
-export type GroqGroqTranscriptionModelId = 'whisper-large-v3-turbo' | 'distil-whisper-large-v3-en' | 'whisper-large-v3' | (string & {});
+// PERPLEXITY Models
+export type PerplexityPerplexityLanguageModelId = 'sonar-deep-research' | 'sonar-reasoning-pro' | 'sonar-reasoning' | 'sonar-pro' | 'sonar' | (string & {});
 
 // COHERE Models
 export type CohereCohereChatModelId = 'command-a-03-2025' | 'command-r7b-12-2024' | 'command-r-plus-04-2024' | 'command-r-plus' | 'command-r-08-2024' | 'command-r-03-2024' | 'command-r' | 'command' | 'command-nightly' | 'command-light' | 'command-light-nightly' | (string & {});
 export type CohereCohereEmbeddingModelId = 'embed-english-v3.0' | 'embed-multilingual-v3.0' | 'embed-english-light-v3.0' | 'embed-multilingual-light-v3.0' | 'embed-english-v2.0' | 'embed-english-light-v2.0' | 'embed-multilingual-v2.0' | (string & {});
+
+// DEEPSEEK Models
+export type DeepseekDeepSeekChatModelId = 'deepseek-chat' | 'deepseek-reasoner' | (string & {});
 
 // XAI Models
 export type XaiXaiChatModelId = 'grok-3' | 'grok-3-latest' | 'grok-3-fast' | 'grok-3-fast-latest' | 'grok-3-mini' | 'grok-3-mini-latest' | 'grok-3-mini-fast' | 'grok-3-mini-fast-latest' | 'grok-2-vision-1212' | 'grok-2-vision' | 'grok-2-vision-latest' | 'grok-2-image-1212' | 'grok-2-image' | 'grok-2-image-latest' | 'grok-2-1212' | 'grok-2' | 'grok-2-latest' | 'grok-vision-beta' | 'grok-beta' | (string & {});
@@ -114,9 +114,36 @@ export type SarvamAiProviderSarvamTranscriptionModelId = 'saarika:v2' | 'saarika
 
 // Model Registry by Provider
 export const AI_SDK_MODELS = {
-  cerebras: {
+  fireworks: {
     chat: {
-      CerebrasCerebrasChatModelId: ['llama3.1-8b', 'llama3.1-70b', 'llama-3.3-70b'],
+      FireworksFireworksChatModelId: ['accounts/fireworks/models/deepseek-v3', 'accounts/fireworks/models/llama-v3p3-70b-instruct', 'accounts/fireworks/models/llama-v3p2-3b-instruct', 'accounts/fireworks/models/llama-v3p1-405b-instruct', 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'accounts/fireworks/models/mixtral-8x7b-instruct', 'accounts/fireworks/models/mixtral-8x22b-instruct', 'accounts/fireworks/models/mixtral-8x7b-instruct-hf', 'accounts/fireworks/models/qwen2p5-coder-32b-instruct', 'accounts/fireworks/models/qwen2p5-72b-instruct', 'accounts/fireworks/models/qwen-qwq-32b-preview', 'accounts/fireworks/models/qwen2-vl-72b-instruct', 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct', 'accounts/fireworks/models/qwq-32b', 'accounts/fireworks/models/yi-large'],
+    },
+    completion: {
+      FireworksFireworksCompletionModelId: ['accounts/fireworks/models/llama-v3-8b-instruct', 'accounts/fireworks/models/llama-v2-34b-code'],
+    },
+    embedding: {
+      FireworksFireworksEmbeddingModelId: ['nomic-ai/nomic-embed-text-v1.5'],
+    },
+    image: {
+      FireworksFireworksImageModelId: ['accounts/fireworks/models/flux-1-dev-fp8', 'accounts/fireworks/models/flux-1-schnell-fp8', 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic', 'accounts/fireworks/models/japanese-stable-diffusion-xl', 'accounts/fireworks/models/playground-v2-1024px-aesthetic', 'accounts/fireworks/models/SSD-1B', 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0'],
+    },
+  },
+  deepgram: {
+    transcription: {
+      DeepgramDeepgramTranscriptionModelId: ['base', 'base-general', 'base-meeting', 'base-phonecall', 'base-finance', 'base-conversationalai', 'base-voicemail', 'base-video', 'enhanced', 'enhanced-general', 'enhanced-meeting', 'enhanced-phonecall', 'enhanced-finance', 'nova', 'nova-general', 'nova-phonecall', 'nova-medical', 'nova-2', 'nova-2-general', 'nova-2-meeting', 'nova-2-phonecall', 'nova-2-finance', 'nova-2-conversationalai', 'nova-2-voicemail', 'nova-2-video', 'nova-2-medical', 'nova-2-drivethru', 'nova-2-automotive', 'nova-2-atc', 'nova-3', 'nova-3-general', 'nova-3-medical'],
+    },
+  },
+  mistral: {
+    chat: {
+      MistralMistralChatModelId: ['ministral-3b-latest', 'ministral-8b-latest', 'mistral-large-latest', 'mistral-small-latest', 'pixtral-large-latest', 'pixtral-12b-2409', 'open-mistral-7b', 'open-mixtral-8x7b', 'open-mixtral-8x22b'],
+    },
+    embedding: {
+      MistralMistralEmbeddingModelId: ['mistral-embed'],
+    },
+  },
+  lmnt: {
+    speech: {
+      LmntLMNTSpeechModelId: ['aurora', 'blizzard'],
     },
   },
   'amazon-bedrock': {
@@ -130,40 +157,9 @@ export const AI_SDK_MODELS = {
       AmazonBedrockBedrockImageModelId: ['amazon.nova-canvas-v1:0'],
     },
   },
-  lmnt: {
-    speech: {
-      LmntLMNTSpeechModelId: ['aurora', 'blizzard'],
-    },
-  },
   anthropic: {
     chat: {
       AnthropicAnthropicMessagesModelId: ['claude-4-opus-20250514', 'claude-4-sonnet-20250514', 'claude-3-7-sonnet-20250219', 'claude-3-5-sonnet-latest', 'claude-3-5-sonnet-20241022', 'claude-3-5-sonnet-20240620', 'claude-3-5-haiku-latest', 'claude-3-5-haiku-20241022', 'claude-3-opus-latest', 'claude-3-opus-20240229', 'claude-3-sonnet-20240229', 'claude-3-haiku-20240307'],
-    },
-  },
-  deepgram: {
-    transcription: {
-      DeepgramDeepgramTranscriptionModelId: ['base', 'base-general', 'base-meeting', 'base-phonecall', 'base-finance', 'base-conversationalai', 'base-voicemail', 'base-video', 'enhanced', 'enhanced-general', 'enhanced-meeting', 'enhanced-phonecall', 'enhanced-finance', 'nova', 'nova-general', 'nova-phonecall', 'nova-medical', 'nova-2', 'nova-2-general', 'nova-2-meeting', 'nova-2-phonecall', 'nova-2-finance', 'nova-2-conversationalai', 'nova-2-voicemail', 'nova-2-video', 'nova-2-medical', 'nova-2-drivethru', 'nova-2-automotive', 'nova-2-atc', 'nova-3', 'nova-3-general', 'nova-3-medical'],
-    },
-  },
-  assemblyai: {
-    transcription: {
-      AssemblyaiAssemblyAITranscriptionModelId: ['best', 'nano'],
-    },
-  },
-  deepinfra: {
-    chat: {
-      DeepinfraDeepInfraChatModelId: ['meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8', 'meta-llama/Llama-4-Scout-17B-16E-Instruct', 'meta-llama/Llama-3.3-70B-Instruct', 'meta-llama/Llama-3.3-70B-Instruct-Turbo', 'meta-llama/Meta-Llama-3.1-70B-Instruct', 'meta-llama/Meta-Llama-3.1-8B-Instruct', 'meta-llama/Meta-Llama-3.1-405B-Instruct', 'Qwen/QwQ-32B-Preview', 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo', 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'nvidia/Llama-3.1-Nemotron-70B-Instruct', 'Qwen/Qwen2.5-72B-Instruct', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'meta-llama/Llama-3.2-11B-Vision-Instruct', 'microsoft/WizardLM-2-8x22B', '01-ai/Yi-34B-Chat', 'Austism/chronos-hermes-13b-v2', 'Gryphe/MythoMax-L2-13b', 'Gryphe/MythoMax-L2-13b-turbo', 'HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1', 'KoboldAI/LLaMA2-13B-Tiefighter', 'NousResearch/Hermes-3-Llama-3.1-405B', 'Phind/Phind-CodeLlama-34B-v2', 'Qwen/Qwen2-72B-Instruct', 'Qwen/Qwen2-7B-Instruct', 'Qwen/Qwen2.5-7B-Instruct', 'Qwen/Qwen2.5-Coder-7B', 'Sao10K/L3-70B-Euryale-v2.1', 'Sao10K/L3-8B-Lunaris-v1', 'Sao10K/L3.1-70B-Euryale-v2.2', 'bigcode/starcoder2-15b', 'bigcode/starcoder2-15b-instruct-v0.1', 'codellama/CodeLlama-34b-Instruct-hf', 'codellama/CodeLlama-70b-Instruct-hf', 'cognitivecomputations/dolphin-2.6-mixtral-8x7b', 'cognitivecomputations/dolphin-2.9.1-llama-3-70b', 'databricks/dbrx-instruct', 'deepinfra/airoboros-70b', 'deepseek-ai/DeepSeek-V3', 'google/codegemma-7b-it', 'google/gemma-1.1-7b-it', 'google/gemma-2-27b-it', 'google/gemma-2-9b-it', 'lizpreciatior/lzlv_70b_fp16_hf', 'mattshumer/Reflection-Llama-3.1-70B', 'meta-llama/Llama-2-13b-chat-hf', 'meta-llama/Llama-2-70b-chat-hf', 'meta-llama/Llama-2-7b-chat-hf', 'meta-llama/Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-3B-Instruct', 'meta-llama/Meta-Llama-3-70B-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct', 'microsoft/Phi-3-medium-4k-instruct', 'microsoft/WizardLM-2-7B', 'mistralai/Mistral-7B-Instruct-v0.1', 'mistralai/Mistral-7B-Instruct-v0.2', 'mistralai/Mistral-7B-Instruct-v0.3', 'mistralai/Mistral-Nemo-Instruct-2407', 'mistralai/Mixtral-8x22B-Instruct-v0.1', 'mistralai/Mixtral-8x22B-v0.1', 'mistralai/Mixtral-8x7B-Instruct-v0.1', 'nvidia/Nemotron-4-340B-Instruct', 'openbmb/MiniCPM-Llama3-V-2_5', 'openchat/openchat-3.6-8b', 'openchat/openchat_3.5'],
-    },
-    embedding: {
-      DeepinfraDeepInfraEmbeddingModelId: ['BAAI/bge-base-en-v1.5', 'BAAI/bge-large-en-v1.5', 'BAAI/bge-m3', 'intfloat/e5-base-v2', 'intfloat/e5-large-v2', 'intfloat/multilingual-e5-large', 'sentence-transformers/all-MiniLM-L12-v2', 'sentence-transformers/all-MiniLM-L6-v2', 'sentence-transformers/all-mpnet-base-v2', 'sentence-transformers/clip-ViT-B-32', 'sentence-transformers/clip-ViT-B-32-multilingual-v1', 'sentence-transformers/multi-qa-mpnet-base-dot-v1', 'sentence-transformers/paraphrase-MiniLM-L6-v2', 'shibing624/text2vec-base-chinese', 'thenlper/gte-base', 'thenlper/gte-large'],
-    },
-    image: {
-      DeepinfraDeepInfraImageModelId: ['stabilityai/sd3.5', 'black-forest-labs/FLUX-1.1-pro', 'black-forest-labs/FLUX-1-schnell', 'black-forest-labs/FLUX-1-dev', 'black-forest-labs/FLUX-pro', 'stabilityai/sd3.5-medium', 'stabilityai/sdxl-turbo'],
-    },
-  },
-  perplexity: {
-    chat: {
-      PerplexityPerplexityLanguageModelId: ['sonar-deep-research', 'sonar-reasoning-pro', 'sonar-reasoning', 'sonar-pro', 'sonar'],
     },
   },
   openai: {
@@ -186,12 +182,41 @@ export const AI_SDK_MODELS = {
       OpenaiOpenAISpeechModelId: ['tts-1', 'tts-1-hd', 'gpt-4o-mini-tts'],
     },
   },
+  elevenlabs: {
+    transcription: {
+      ElevenlabsElevenLabsTranscriptionModelId: ['scribe_v1', 'scribe_v1_experimental'],
+    },
+  },
   'google-vertex': {
     image: {
       GoogleVertexGoogleVertexImageModelId: ['imagen-3.0-generate-001', 'imagen-3.0-generate-002', 'imagen-3.0-fast-generate-001'],
     },
     chat: {
       GoogleVertexGoogleVertexModelId: ['gemini-2.0-flash-001', 'gemini-1.5-flash', 'gemini-1.5-flash-001', 'gemini-1.5-flash-002', 'gemini-1.5-pro', 'gemini-1.5-pro-001', 'gemini-1.5-pro-002', 'gemini-1.0-pro-001', 'gemini-1.0-pro-vision-001', 'gemini-1.0-pro', 'gemini-1.0-pro-001', 'gemini-1.0-pro-002', 'gemini-2.0-flash-lite-preview-02-05', 'gemini-2.0-pro-exp-02-05', 'gemini-2.0-flash-exp'],
+    },
+  },
+  assemblyai: {
+    transcription: {
+      AssemblyaiAssemblyAITranscriptionModelId: ['best', 'nano'],
+    },
+  },
+  deepinfra: {
+    chat: {
+      DeepinfraDeepInfraChatModelId: ['meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8', 'meta-llama/Llama-4-Scout-17B-16E-Instruct', 'meta-llama/Llama-3.3-70B-Instruct', 'meta-llama/Llama-3.3-70B-Instruct-Turbo', 'meta-llama/Meta-Llama-3.1-70B-Instruct', 'meta-llama/Meta-Llama-3.1-8B-Instruct', 'meta-llama/Meta-Llama-3.1-405B-Instruct', 'Qwen/QwQ-32B-Preview', 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo', 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'nvidia/Llama-3.1-Nemotron-70B-Instruct', 'Qwen/Qwen2.5-72B-Instruct', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'meta-llama/Llama-3.2-11B-Vision-Instruct', 'microsoft/WizardLM-2-8x22B', '01-ai/Yi-34B-Chat', 'Austism/chronos-hermes-13b-v2', 'Gryphe/MythoMax-L2-13b', 'Gryphe/MythoMax-L2-13b-turbo', 'HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1', 'KoboldAI/LLaMA2-13B-Tiefighter', 'NousResearch/Hermes-3-Llama-3.1-405B', 'Phind/Phind-CodeLlama-34B-v2', 'Qwen/Qwen2-72B-Instruct', 'Qwen/Qwen2-7B-Instruct', 'Qwen/Qwen2.5-7B-Instruct', 'Qwen/Qwen2.5-Coder-7B', 'Sao10K/L3-70B-Euryale-v2.1', 'Sao10K/L3-8B-Lunaris-v1', 'Sao10K/L3.1-70B-Euryale-v2.2', 'bigcode/starcoder2-15b', 'bigcode/starcoder2-15b-instruct-v0.1', 'codellama/CodeLlama-34b-Instruct-hf', 'codellama/CodeLlama-70b-Instruct-hf', 'cognitivecomputations/dolphin-2.6-mixtral-8x7b', 'cognitivecomputations/dolphin-2.9.1-llama-3-70b', 'databricks/dbrx-instruct', 'deepinfra/airoboros-70b', 'deepseek-ai/DeepSeek-V3', 'google/codegemma-7b-it', 'google/gemma-1.1-7b-it', 'google/gemma-2-27b-it', 'google/gemma-2-9b-it', 'lizpreciatior/lzlv_70b_fp16_hf', 'mattshumer/Reflection-Llama-3.1-70B', 'meta-llama/Llama-2-13b-chat-hf', 'meta-llama/Llama-2-70b-chat-hf', 'meta-llama/Llama-2-7b-chat-hf', 'meta-llama/Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-3B-Instruct', 'meta-llama/Meta-Llama-3-70B-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct', 'microsoft/Phi-3-medium-4k-instruct', 'microsoft/WizardLM-2-7B', 'mistralai/Mistral-7B-Instruct-v0.1', 'mistralai/Mistral-7B-Instruct-v0.2', 'mistralai/Mistral-7B-Instruct-v0.3', 'mistralai/Mistral-Nemo-Instruct-2407', 'mistralai/Mixtral-8x22B-Instruct-v0.1', 'mistralai/Mixtral-8x22B-v0.1', 'mistralai/Mixtral-8x7B-Instruct-v0.1', 'nvidia/Nemotron-4-340B-Instruct', 'openbmb/MiniCPM-Llama3-V-2_5', 'openchat/openchat-3.6-8b', 'openchat/openchat_3.5'],
+    },
+    embedding: {
+      DeepinfraDeepInfraEmbeddingModelId: ['BAAI/bge-base-en-v1.5', 'BAAI/bge-large-en-v1.5', 'BAAI/bge-m3', 'intfloat/e5-base-v2', 'intfloat/e5-large-v2', 'intfloat/multilingual-e5-large', 'sentence-transformers/all-MiniLM-L12-v2', 'sentence-transformers/all-MiniLM-L6-v2', 'sentence-transformers/all-mpnet-base-v2', 'sentence-transformers/clip-ViT-B-32', 'sentence-transformers/clip-ViT-B-32-multilingual-v1', 'sentence-transformers/multi-qa-mpnet-base-dot-v1', 'sentence-transformers/paraphrase-MiniLM-L6-v2', 'shibing624/text2vec-base-chinese', 'thenlper/gte-base', 'thenlper/gte-large'],
+    },
+    image: {
+      DeepinfraDeepInfraImageModelId: ['stabilityai/sd3.5', 'black-forest-labs/FLUX-1.1-pro', 'black-forest-labs/FLUX-1-schnell', 'black-forest-labs/FLUX-1-dev', 'black-forest-labs/FLUX-pro', 'stabilityai/sd3.5-medium', 'stabilityai/sdxl-turbo'],
+    },
+  },
+  groq: {
+    chat: {
+      GroqGroqChatModelId: ['gemma2-9b-it', 'llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'llama-guard-3-8b', 'llama3-70b-8192', 'llama3-8b-8192', 'mixtral-8x7b-32768', 'meta-llama/llama-4-scout-17b-16e-instruct', 'qwen-qwq-32b', 'mistral-saba-24b', 'qwen-2.5-32b', 'deepseek-r1-distill-qwen-32b', 'deepseek-r1-distill-llama-70b'],
+    },
+    transcription: {
+      GroqGroqTranscriptionModelId: ['whisper-large-v3-turbo', 'distil-whisper-large-v3-en', 'whisper-large-v3'],
     },
   },
   google: {
@@ -202,9 +227,9 @@ export const AI_SDK_MODELS = {
       GoogleGoogleGenerativeAIEmbeddingModelId: ['text-embedding-004'],
     },
   },
-  elevenlabs: {
+  revai: {
     transcription: {
-      ElevenlabsElevenLabsTranscriptionModelId: ['scribe_v1', 'scribe_v1_experimental'],
+      RevaiRevaiTranscriptionModelId: ['machine', 'low_cost', 'fusion'],
     },
   },
   togetherai: {
@@ -221,44 +246,14 @@ export const AI_SDK_MODELS = {
       TogetheraiTogetherAIImageModelId: ['stabilityai/stable-diffusion-xl-base-1.0', 'black-forest-labs/FLUX.1-dev', 'black-forest-labs/FLUX.1-dev-lora', 'black-forest-labs/FLUX.1-schnell', 'black-forest-labs/FLUX.1-canny', 'black-forest-labs/FLUX.1-depth', 'black-forest-labs/FLUX.1-redux', 'black-forest-labs/FLUX.1.1-pro', 'black-forest-labs/FLUX.1-pro', 'black-forest-labs/FLUX.1-schnell-Free'],
     },
   },
-  deepseek: {
+  cerebras: {
     chat: {
-      DeepseekDeepSeekChatModelId: ['deepseek-chat', 'deepseek-reasoner'],
+      CerebrasCerebrasChatModelId: ['llama3.1-8b', 'llama3.1-70b', 'llama-3.3-70b'],
     },
   },
-  mistral: {
+  perplexity: {
     chat: {
-      MistralMistralChatModelId: ['ministral-3b-latest', 'ministral-8b-latest', 'mistral-large-latest', 'mistral-small-latest', 'pixtral-large-latest', 'pixtral-12b-2409', 'open-mistral-7b', 'open-mixtral-8x7b', 'open-mixtral-8x22b'],
-    },
-    embedding: {
-      MistralMistralEmbeddingModelId: ['mistral-embed'],
-    },
-  },
-  fireworks: {
-    chat: {
-      FireworksFireworksChatModelId: ['accounts/fireworks/models/deepseek-v3', 'accounts/fireworks/models/llama-v3p3-70b-instruct', 'accounts/fireworks/models/llama-v3p2-3b-instruct', 'accounts/fireworks/models/llama-v3p1-405b-instruct', 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'accounts/fireworks/models/mixtral-8x7b-instruct', 'accounts/fireworks/models/mixtral-8x22b-instruct', 'accounts/fireworks/models/mixtral-8x7b-instruct-hf', 'accounts/fireworks/models/qwen2p5-coder-32b-instruct', 'accounts/fireworks/models/qwen2p5-72b-instruct', 'accounts/fireworks/models/qwen-qwq-32b-preview', 'accounts/fireworks/models/qwen2-vl-72b-instruct', 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct', 'accounts/fireworks/models/qwq-32b', 'accounts/fireworks/models/yi-large'],
-    },
-    completion: {
-      FireworksFireworksCompletionModelId: ['accounts/fireworks/models/llama-v3-8b-instruct', 'accounts/fireworks/models/llama-v2-34b-code'],
-    },
-    embedding: {
-      FireworksFireworksEmbeddingModelId: ['nomic-ai/nomic-embed-text-v1.5'],
-    },
-    image: {
-      FireworksFireworksImageModelId: ['accounts/fireworks/models/flux-1-dev-fp8', 'accounts/fireworks/models/flux-1-schnell-fp8', 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic', 'accounts/fireworks/models/japanese-stable-diffusion-xl', 'accounts/fireworks/models/playground-v2-1024px-aesthetic', 'accounts/fireworks/models/SSD-1B', 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0'],
-    },
-  },
-  revai: {
-    transcription: {
-      RevaiRevaiTranscriptionModelId: ['machine', 'low_cost', 'fusion'],
-    },
-  },
-  groq: {
-    chat: {
-      GroqGroqChatModelId: ['gemma2-9b-it', 'llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'llama-guard-3-8b', 'llama3-70b-8192', 'llama3-8b-8192', 'mixtral-8x7b-32768', 'meta-llama/llama-4-scout-17b-16e-instruct', 'qwen-qwq-32b', 'mistral-saba-24b', 'qwen-2.5-32b', 'deepseek-r1-distill-qwen-32b', 'deepseek-r1-distill-llama-70b'],
-    },
-    transcription: {
-      GroqGroqTranscriptionModelId: ['whisper-large-v3-turbo', 'distil-whisper-large-v3-en', 'whisper-large-v3'],
+      PerplexityPerplexityLanguageModelId: ['sonar-deep-research', 'sonar-reasoning-pro', 'sonar-reasoning', 'sonar-pro', 'sonar'],
     },
   },
   cohere: {
@@ -267,6 +262,11 @@ export const AI_SDK_MODELS = {
     },
     embedding: {
       CohereCohereEmbeddingModelId: ['embed-english-v3.0', 'embed-multilingual-v3.0', 'embed-english-light-v3.0', 'embed-multilingual-light-v3.0', 'embed-english-v2.0', 'embed-english-light-v2.0', 'embed-multilingual-v2.0'],
+    },
+  },
+  deepseek: {
+    chat: {
+      DeepseekDeepSeekChatModelId: ['deepseek-chat', 'deepseek-reasoner'],
     },
   },
   xai: {
@@ -331,9 +331,75 @@ export const AI_SDK_MODELS = {
 
 // Flat list of all models with provider prefix
 export const ALL_MODELS = [
-  { provider: 'cerebras', model: 'llama3.1-8b', category: 'chat', value: 'cerebras:llama3.1-8b' },
-  { provider: 'cerebras', model: 'llama3.1-70b', category: 'chat', value: 'cerebras:llama3.1-70b' },
-  { provider: 'cerebras', model: 'llama-3.3-70b', category: 'chat', value: 'cerebras:llama-3.3-70b' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/deepseek-v3', category: 'chat', value: 'fireworks:accounts/fireworks/models/deepseek-v3' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p3-70b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p3-70b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p2-3b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p2-3b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p1-405b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p1-405b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p1-8b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p1-8b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x7b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x7b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x22b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x22b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x7b-instruct-hf', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x7b-instruct-hf' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2p5-coder-32b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2p5-coder-32b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2p5-72b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2p5-72b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen-qwq-32b-preview', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen-qwq-32b-preview' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2-vl-72b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2-vl-72b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p2-11b-vision-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/qwq-32b', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwq-32b' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/yi-large', category: 'chat', value: 'fireworks:accounts/fireworks/models/yi-large' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3-8b-instruct', category: 'completion', value: 'fireworks:accounts/fireworks/models/llama-v3-8b-instruct' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v2-34b-code', category: 'completion', value: 'fireworks:accounts/fireworks/models/llama-v2-34b-code' },
+  { provider: 'fireworks', model: 'nomic-ai/nomic-embed-text-v1.5', category: 'embedding', value: 'fireworks:nomic-ai/nomic-embed-text-v1.5' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/flux-1-dev-fp8', category: 'image', value: 'fireworks:accounts/fireworks/models/flux-1-dev-fp8' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/flux-1-schnell-fp8', category: 'image', value: 'fireworks:accounts/fireworks/models/flux-1-schnell-fp8' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic', category: 'image', value: 'fireworks:accounts/fireworks/models/playground-v2-5-1024px-aesthetic' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/japanese-stable-diffusion-xl', category: 'image', value: 'fireworks:accounts/fireworks/models/japanese-stable-diffusion-xl' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/playground-v2-1024px-aesthetic', category: 'image', value: 'fireworks:accounts/fireworks/models/playground-v2-1024px-aesthetic' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/SSD-1B', category: 'image', value: 'fireworks:accounts/fireworks/models/SSD-1B' },
+  { provider: 'fireworks', model: 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0', category: 'image', value: 'fireworks:accounts/fireworks/models/stable-diffusion-xl-1024-v1-0' },
+  { provider: 'deepgram', model: 'base', category: 'transcription', value: 'deepgram:base' },
+  { provider: 'deepgram', model: 'base-general', category: 'transcription', value: 'deepgram:base-general' },
+  { provider: 'deepgram', model: 'base-meeting', category: 'transcription', value: 'deepgram:base-meeting' },
+  { provider: 'deepgram', model: 'base-phonecall', category: 'transcription', value: 'deepgram:base-phonecall' },
+  { provider: 'deepgram', model: 'base-finance', category: 'transcription', value: 'deepgram:base-finance' },
+  { provider: 'deepgram', model: 'base-conversationalai', category: 'transcription', value: 'deepgram:base-conversationalai' },
+  { provider: 'deepgram', model: 'base-voicemail', category: 'transcription', value: 'deepgram:base-voicemail' },
+  { provider: 'deepgram', model: 'base-video', category: 'transcription', value: 'deepgram:base-video' },
+  { provider: 'deepgram', model: 'enhanced', category: 'transcription', value: 'deepgram:enhanced' },
+  { provider: 'deepgram', model: 'enhanced-general', category: 'transcription', value: 'deepgram:enhanced-general' },
+  { provider: 'deepgram', model: 'enhanced-meeting', category: 'transcription', value: 'deepgram:enhanced-meeting' },
+  { provider: 'deepgram', model: 'enhanced-phonecall', category: 'transcription', value: 'deepgram:enhanced-phonecall' },
+  { provider: 'deepgram', model: 'enhanced-finance', category: 'transcription', value: 'deepgram:enhanced-finance' },
+  { provider: 'deepgram', model: 'nova', category: 'transcription', value: 'deepgram:nova' },
+  { provider: 'deepgram', model: 'nova-general', category: 'transcription', value: 'deepgram:nova-general' },
+  { provider: 'deepgram', model: 'nova-phonecall', category: 'transcription', value: 'deepgram:nova-phonecall' },
+  { provider: 'deepgram', model: 'nova-medical', category: 'transcription', value: 'deepgram:nova-medical' },
+  { provider: 'deepgram', model: 'nova-2', category: 'transcription', value: 'deepgram:nova-2' },
+  { provider: 'deepgram', model: 'nova-2-general', category: 'transcription', value: 'deepgram:nova-2-general' },
+  { provider: 'deepgram', model: 'nova-2-meeting', category: 'transcription', value: 'deepgram:nova-2-meeting' },
+  { provider: 'deepgram', model: 'nova-2-phonecall', category: 'transcription', value: 'deepgram:nova-2-phonecall' },
+  { provider: 'deepgram', model: 'nova-2-finance', category: 'transcription', value: 'deepgram:nova-2-finance' },
+  { provider: 'deepgram', model: 'nova-2-conversationalai', category: 'transcription', value: 'deepgram:nova-2-conversationalai' },
+  { provider: 'deepgram', model: 'nova-2-voicemail', category: 'transcription', value: 'deepgram:nova-2-voicemail' },
+  { provider: 'deepgram', model: 'nova-2-video', category: 'transcription', value: 'deepgram:nova-2-video' },
+  { provider: 'deepgram', model: 'nova-2-medical', category: 'transcription', value: 'deepgram:nova-2-medical' },
+  { provider: 'deepgram', model: 'nova-2-drivethru', category: 'transcription', value: 'deepgram:nova-2-drivethru' },
+  { provider: 'deepgram', model: 'nova-2-automotive', category: 'transcription', value: 'deepgram:nova-2-automotive' },
+  { provider: 'deepgram', model: 'nova-2-atc', category: 'transcription', value: 'deepgram:nova-2-atc' },
+  { provider: 'deepgram', model: 'nova-3', category: 'transcription', value: 'deepgram:nova-3' },
+  { provider: 'deepgram', model: 'nova-3-general', category: 'transcription', value: 'deepgram:nova-3-general' },
+  { provider: 'deepgram', model: 'nova-3-medical', category: 'transcription', value: 'deepgram:nova-3-medical' },
+  { provider: 'mistral', model: 'ministral-3b-latest', category: 'chat', value: 'mistral:ministral-3b-latest' },
+  { provider: 'mistral', model: 'ministral-8b-latest', category: 'chat', value: 'mistral:ministral-8b-latest' },
+  { provider: 'mistral', model: 'mistral-large-latest', category: 'chat', value: 'mistral:mistral-large-latest' },
+  { provider: 'mistral', model: 'mistral-small-latest', category: 'chat', value: 'mistral:mistral-small-latest' },
+  { provider: 'mistral', model: 'pixtral-large-latest', category: 'chat', value: 'mistral:pixtral-large-latest' },
+  { provider: 'mistral', model: 'pixtral-12b-2409', category: 'chat', value: 'mistral:pixtral-12b-2409' },
+  { provider: 'mistral', model: 'open-mistral-7b', category: 'chat', value: 'mistral:open-mistral-7b' },
+  { provider: 'mistral', model: 'open-mixtral-8x7b', category: 'chat', value: 'mistral:open-mixtral-8x7b' },
+  { provider: 'mistral', model: 'open-mixtral-8x22b', category: 'chat', value: 'mistral:open-mixtral-8x22b' },
+  { provider: 'mistral', model: 'mistral-embed', category: 'embedding', value: 'mistral:mistral-embed' },
+  { provider: 'lmnt', model: 'aurora', category: 'speech', value: 'lmnt:aurora' },
+  { provider: 'lmnt', model: 'blizzard', category: 'speech', value: 'lmnt:blizzard' },
   { provider: 'amazon-bedrock', model: 'amazon.titan-tg1-large', category: 'chat', value: 'amazon-bedrock:amazon.titan-tg1-large' },
   { provider: 'amazon-bedrock', model: 'amazon.titan-text-express-v1', category: 'chat', value: 'amazon-bedrock:amazon.titan-text-express-v1' },
   { provider: 'amazon-bedrock', model: 'anthropic.claude-v2', category: 'chat', value: 'amazon-bedrock:anthropic.claude-v2' },
@@ -372,8 +438,6 @@ export const ALL_MODELS = [
   { provider: 'amazon-bedrock', model: 'cohere.embed-english-v3', category: 'embedding', value: 'amazon-bedrock:cohere.embed-english-v3' },
   { provider: 'amazon-bedrock', model: 'cohere.embed-multilingual-v3', category: 'embedding', value: 'amazon-bedrock:cohere.embed-multilingual-v3' },
   { provider: 'amazon-bedrock', model: 'amazon.nova-canvas-v1:0', category: 'image', value: 'amazon-bedrock:amazon.nova-canvas-v1:0' },
-  { provider: 'lmnt', model: 'aurora', category: 'speech', value: 'lmnt:aurora' },
-  { provider: 'lmnt', model: 'blizzard', category: 'speech', value: 'lmnt:blizzard' },
   { provider: 'anthropic', model: 'claude-4-opus-20250514', category: 'chat', value: 'anthropic:claude-4-opus-20250514' },
   { provider: 'anthropic', model: 'claude-4-sonnet-20250514', category: 'chat', value: 'anthropic:claude-4-sonnet-20250514' },
   { provider: 'anthropic', model: 'claude-3-7-sonnet-20250219', category: 'chat', value: 'anthropic:claude-3-7-sonnet-20250219' },
@@ -386,38 +450,83 @@ export const ALL_MODELS = [
   { provider: 'anthropic', model: 'claude-3-opus-20240229', category: 'chat', value: 'anthropic:claude-3-opus-20240229' },
   { provider: 'anthropic', model: 'claude-3-sonnet-20240229', category: 'chat', value: 'anthropic:claude-3-sonnet-20240229' },
   { provider: 'anthropic', model: 'claude-3-haiku-20240307', category: 'chat', value: 'anthropic:claude-3-haiku-20240307' },
-  { provider: 'deepgram', model: 'base', category: 'transcription', value: 'deepgram:base' },
-  { provider: 'deepgram', model: 'base-general', category: 'transcription', value: 'deepgram:base-general' },
-  { provider: 'deepgram', model: 'base-meeting', category: 'transcription', value: 'deepgram:base-meeting' },
-  { provider: 'deepgram', model: 'base-phonecall', category: 'transcription', value: 'deepgram:base-phonecall' },
-  { provider: 'deepgram', model: 'base-finance', category: 'transcription', value: 'deepgram:base-finance' },
-  { provider: 'deepgram', model: 'base-conversationalai', category: 'transcription', value: 'deepgram:base-conversationalai' },
-  { provider: 'deepgram', model: 'base-voicemail', category: 'transcription', value: 'deepgram:base-voicemail' },
-  { provider: 'deepgram', model: 'base-video', category: 'transcription', value: 'deepgram:base-video' },
-  { provider: 'deepgram', model: 'enhanced', category: 'transcription', value: 'deepgram:enhanced' },
-  { provider: 'deepgram', model: 'enhanced-general', category: 'transcription', value: 'deepgram:enhanced-general' },
-  { provider: 'deepgram', model: 'enhanced-meeting', category: 'transcription', value: 'deepgram:enhanced-meeting' },
-  { provider: 'deepgram', model: 'enhanced-phonecall', category: 'transcription', value: 'deepgram:enhanced-phonecall' },
-  { provider: 'deepgram', model: 'enhanced-finance', category: 'transcription', value: 'deepgram:enhanced-finance' },
-  { provider: 'deepgram', model: 'nova', category: 'transcription', value: 'deepgram:nova' },
-  { provider: 'deepgram', model: 'nova-general', category: 'transcription', value: 'deepgram:nova-general' },
-  { provider: 'deepgram', model: 'nova-phonecall', category: 'transcription', value: 'deepgram:nova-phonecall' },
-  { provider: 'deepgram', model: 'nova-medical', category: 'transcription', value: 'deepgram:nova-medical' },
-  { provider: 'deepgram', model: 'nova-2', category: 'transcription', value: 'deepgram:nova-2' },
-  { provider: 'deepgram', model: 'nova-2-general', category: 'transcription', value: 'deepgram:nova-2-general' },
-  { provider: 'deepgram', model: 'nova-2-meeting', category: 'transcription', value: 'deepgram:nova-2-meeting' },
-  { provider: 'deepgram', model: 'nova-2-phonecall', category: 'transcription', value: 'deepgram:nova-2-phonecall' },
-  { provider: 'deepgram', model: 'nova-2-finance', category: 'transcription', value: 'deepgram:nova-2-finance' },
-  { provider: 'deepgram', model: 'nova-2-conversationalai', category: 'transcription', value: 'deepgram:nova-2-conversationalai' },
-  { provider: 'deepgram', model: 'nova-2-voicemail', category: 'transcription', value: 'deepgram:nova-2-voicemail' },
-  { provider: 'deepgram', model: 'nova-2-video', category: 'transcription', value: 'deepgram:nova-2-video' },
-  { provider: 'deepgram', model: 'nova-2-medical', category: 'transcription', value: 'deepgram:nova-2-medical' },
-  { provider: 'deepgram', model: 'nova-2-drivethru', category: 'transcription', value: 'deepgram:nova-2-drivethru' },
-  { provider: 'deepgram', model: 'nova-2-automotive', category: 'transcription', value: 'deepgram:nova-2-automotive' },
-  { provider: 'deepgram', model: 'nova-2-atc', category: 'transcription', value: 'deepgram:nova-2-atc' },
-  { provider: 'deepgram', model: 'nova-3', category: 'transcription', value: 'deepgram:nova-3' },
-  { provider: 'deepgram', model: 'nova-3-general', category: 'transcription', value: 'deepgram:nova-3-general' },
-  { provider: 'deepgram', model: 'nova-3-medical', category: 'transcription', value: 'deepgram:nova-3-medical' },
+  { provider: 'openai', model: 'o1', category: 'chat', value: 'openai:o1' },
+  { provider: 'openai', model: 'o1-2024-12-17', category: 'chat', value: 'openai:o1-2024-12-17' },
+  { provider: 'openai', model: 'o1-mini', category: 'chat', value: 'openai:o1-mini' },
+  { provider: 'openai', model: 'o1-mini-2024-09-12', category: 'chat', value: 'openai:o1-mini-2024-09-12' },
+  { provider: 'openai', model: 'o1-preview', category: 'chat', value: 'openai:o1-preview' },
+  { provider: 'openai', model: 'o1-preview-2024-09-12', category: 'chat', value: 'openai:o1-preview-2024-09-12' },
+  { provider: 'openai', model: 'o3-mini', category: 'chat', value: 'openai:o3-mini' },
+  { provider: 'openai', model: 'o3-mini-2025-01-31', category: 'chat', value: 'openai:o3-mini-2025-01-31' },
+  { provider: 'openai', model: 'o3', category: 'chat', value: 'openai:o3' },
+  { provider: 'openai', model: 'o3-2025-04-16', category: 'chat', value: 'openai:o3-2025-04-16' },
+  { provider: 'openai', model: 'o4-mini', category: 'chat', value: 'openai:o4-mini' },
+  { provider: 'openai', model: 'o4-mini-2025-04-16', category: 'chat', value: 'openai:o4-mini-2025-04-16' },
+  { provider: 'openai', model: 'gpt-4.1', category: 'chat', value: 'openai:gpt-4.1' },
+  { provider: 'openai', model: 'gpt-4.1-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-2025-04-14' },
+  { provider: 'openai', model: 'gpt-4.1-mini', category: 'chat', value: 'openai:gpt-4.1-mini' },
+  { provider: 'openai', model: 'gpt-4.1-mini-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-mini-2025-04-14' },
+  { provider: 'openai', model: 'gpt-4.1-nano', category: 'chat', value: 'openai:gpt-4.1-nano' },
+  { provider: 'openai', model: 'gpt-4.1-nano-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-nano-2025-04-14' },
+  { provider: 'openai', model: 'gpt-4o', category: 'chat', value: 'openai:gpt-4o' },
+  { provider: 'openai', model: 'gpt-4o-2024-05-13', category: 'chat', value: 'openai:gpt-4o-2024-05-13' },
+  { provider: 'openai', model: 'gpt-4o-2024-08-06', category: 'chat', value: 'openai:gpt-4o-2024-08-06' },
+  { provider: 'openai', model: 'gpt-4o-2024-11-20', category: 'chat', value: 'openai:gpt-4o-2024-11-20' },
+  { provider: 'openai', model: 'gpt-4o-audio-preview', category: 'chat', value: 'openai:gpt-4o-audio-preview' },
+  { provider: 'openai', model: 'gpt-4o-audio-preview-2024-10-01', category: 'chat', value: 'openai:gpt-4o-audio-preview-2024-10-01' },
+  { provider: 'openai', model: 'gpt-4o-audio-preview-2024-12-17', category: 'chat', value: 'openai:gpt-4o-audio-preview-2024-12-17' },
+  { provider: 'openai', model: 'gpt-4o-search-preview', category: 'chat', value: 'openai:gpt-4o-search-preview' },
+  { provider: 'openai', model: 'gpt-4o-search-preview-2025-03-11', category: 'chat', value: 'openai:gpt-4o-search-preview-2025-03-11' },
+  { provider: 'openai', model: 'gpt-4o-mini-search-preview', category: 'chat', value: 'openai:gpt-4o-mini-search-preview' },
+  { provider: 'openai', model: 'gpt-4o-mini-search-preview-2025-03-11', category: 'chat', value: 'openai:gpt-4o-mini-search-preview-2025-03-11' },
+  { provider: 'openai', model: 'gpt-4o-mini', category: 'chat', value: 'openai:gpt-4o-mini' },
+  { provider: 'openai', model: 'gpt-4o-mini-2024-07-18', category: 'chat', value: 'openai:gpt-4o-mini-2024-07-18' },
+  { provider: 'openai', model: 'gpt-4-turbo', category: 'chat', value: 'openai:gpt-4-turbo' },
+  { provider: 'openai', model: 'gpt-4-turbo-2024-04-09', category: 'chat', value: 'openai:gpt-4-turbo-2024-04-09' },
+  { provider: 'openai', model: 'gpt-4-turbo-preview', category: 'chat', value: 'openai:gpt-4-turbo-preview' },
+  { provider: 'openai', model: 'gpt-4-0125-preview', category: 'chat', value: 'openai:gpt-4-0125-preview' },
+  { provider: 'openai', model: 'gpt-4-1106-preview', category: 'chat', value: 'openai:gpt-4-1106-preview' },
+  { provider: 'openai', model: 'gpt-4', category: 'chat', value: 'openai:gpt-4' },
+  { provider: 'openai', model: 'gpt-4-0613', category: 'chat', value: 'openai:gpt-4-0613' },
+  { provider: 'openai', model: 'gpt-4.5-preview', category: 'chat', value: 'openai:gpt-4.5-preview' },
+  { provider: 'openai', model: 'gpt-4.5-preview-2025-02-27', category: 'chat', value: 'openai:gpt-4.5-preview-2025-02-27' },
+  { provider: 'openai', model: 'gpt-3.5-turbo-0125', category: 'chat', value: 'openai:gpt-3.5-turbo-0125' },
+  { provider: 'openai', model: 'gpt-3.5-turbo', category: 'chat', value: 'openai:gpt-3.5-turbo' },
+  { provider: 'openai', model: 'gpt-3.5-turbo-1106', category: 'chat', value: 'openai:gpt-3.5-turbo-1106' },
+  { provider: 'openai', model: 'chatgpt-4o-latest', category: 'chat', value: 'openai:chatgpt-4o-latest' },
+  { provider: 'openai', model: 'gpt-3.5-turbo-instruct', category: 'completion', value: 'openai:gpt-3.5-turbo-instruct' },
+  { provider: 'openai', model: 'text-embedding-3-small', category: 'embedding', value: 'openai:text-embedding-3-small' },
+  { provider: 'openai', model: 'text-embedding-3-large', category: 'embedding', value: 'openai:text-embedding-3-large' },
+  { provider: 'openai', model: 'text-embedding-ada-002', category: 'embedding', value: 'openai:text-embedding-ada-002' },
+  { provider: 'openai', model: 'gpt-image-1', category: 'image', value: 'openai:gpt-image-1' },
+  { provider: 'openai', model: 'dall-e-3', category: 'image', value: 'openai:dall-e-3' },
+  { provider: 'openai', model: 'dall-e-2', category: 'image', value: 'openai:dall-e-2' },
+  { provider: 'openai', model: 'whisper-1', category: 'transcription', value: 'openai:whisper-1' },
+  { provider: 'openai', model: 'gpt-4o-mini-transcribe', category: 'transcription', value: 'openai:gpt-4o-mini-transcribe' },
+  { provider: 'openai', model: 'gpt-4o-transcribe', category: 'transcription', value: 'openai:gpt-4o-transcribe' },
+  { provider: 'openai', model: 'tts-1', category: 'speech', value: 'openai:tts-1' },
+  { provider: 'openai', model: 'tts-1-hd', category: 'speech', value: 'openai:tts-1-hd' },
+  { provider: 'openai', model: 'gpt-4o-mini-tts', category: 'speech', value: 'openai:gpt-4o-mini-tts' },
+  { provider: 'elevenlabs', model: 'scribe_v1', category: 'transcription', value: 'elevenlabs:scribe_v1' },
+  { provider: 'elevenlabs', model: 'scribe_v1_experimental', category: 'transcription', value: 'elevenlabs:scribe_v1_experimental' },
+  { provider: 'google-vertex', model: 'imagen-3.0-generate-001', category: 'image', value: 'google-vertex:imagen-3.0-generate-001' },
+  { provider: 'google-vertex', model: 'imagen-3.0-generate-002', category: 'image', value: 'google-vertex:imagen-3.0-generate-002' },
+  { provider: 'google-vertex', model: 'imagen-3.0-fast-generate-001', category: 'image', value: 'google-vertex:imagen-3.0-fast-generate-001' },
+  { provider: 'google-vertex', model: 'gemini-2.0-flash-001', category: 'chat', value: 'google-vertex:gemini-2.0-flash-001' },
+  { provider: 'google-vertex', model: 'gemini-1.5-flash', category: 'chat', value: 'google-vertex:gemini-1.5-flash' },
+  { provider: 'google-vertex', model: 'gemini-1.5-flash-001', category: 'chat', value: 'google-vertex:gemini-1.5-flash-001' },
+  { provider: 'google-vertex', model: 'gemini-1.5-flash-002', category: 'chat', value: 'google-vertex:gemini-1.5-flash-002' },
+  { provider: 'google-vertex', model: 'gemini-1.5-pro', category: 'chat', value: 'google-vertex:gemini-1.5-pro' },
+  { provider: 'google-vertex', model: 'gemini-1.5-pro-001', category: 'chat', value: 'google-vertex:gemini-1.5-pro-001' },
+  { provider: 'google-vertex', model: 'gemini-1.5-pro-002', category: 'chat', value: 'google-vertex:gemini-1.5-pro-002' },
+  { provider: 'google-vertex', model: 'gemini-1.0-pro-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-001' },
+  { provider: 'google-vertex', model: 'gemini-1.0-pro-vision-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-vision-001' },
+  { provider: 'google-vertex', model: 'gemini-1.0-pro', category: 'chat', value: 'google-vertex:gemini-1.0-pro' },
+  { provider: 'google-vertex', model: 'gemini-1.0-pro-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-001' },
+  { provider: 'google-vertex', model: 'gemini-1.0-pro-002', category: 'chat', value: 'google-vertex:gemini-1.0-pro-002' },
+  { provider: 'google-vertex', model: 'gemini-2.0-flash-lite-preview-02-05', category: 'chat', value: 'google-vertex:gemini-2.0-flash-lite-preview-02-05' },
+  { provider: 'google-vertex', model: 'gemini-2.0-pro-exp-02-05', category: 'chat', value: 'google-vertex:gemini-2.0-pro-exp-02-05' },
+  { provider: 'google-vertex', model: 'gemini-2.0-flash-exp', category: 'chat', value: 'google-vertex:gemini-2.0-flash-exp' },
   { provider: 'assemblyai', model: 'best', category: 'transcription', value: 'assemblyai:best' },
   { provider: 'assemblyai', model: 'nano', category: 'transcription', value: 'assemblyai:nano' },
   { provider: 'deepinfra', model: 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8', category: 'chat', value: 'deepinfra:meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8' },
@@ -509,86 +618,22 @@ export const ALL_MODELS = [
   { provider: 'deepinfra', model: 'black-forest-labs/FLUX-pro', category: 'image', value: 'deepinfra:black-forest-labs/FLUX-pro' },
   { provider: 'deepinfra', model: 'stabilityai/sd3.5-medium', category: 'image', value: 'deepinfra:stabilityai/sd3.5-medium' },
   { provider: 'deepinfra', model: 'stabilityai/sdxl-turbo', category: 'image', value: 'deepinfra:stabilityai/sdxl-turbo' },
-  { provider: 'perplexity', model: 'sonar-deep-research', category: 'chat', value: 'perplexity:sonar-deep-research' },
-  { provider: 'perplexity', model: 'sonar-reasoning-pro', category: 'chat', value: 'perplexity:sonar-reasoning-pro' },
-  { provider: 'perplexity', model: 'sonar-reasoning', category: 'chat', value: 'perplexity:sonar-reasoning' },
-  { provider: 'perplexity', model: 'sonar-pro', category: 'chat', value: 'perplexity:sonar-pro' },
-  { provider: 'perplexity', model: 'sonar', category: 'chat', value: 'perplexity:sonar' },
-  { provider: 'openai', model: 'o1', category: 'chat', value: 'openai:o1' },
-  { provider: 'openai', model: 'o1-2024-12-17', category: 'chat', value: 'openai:o1-2024-12-17' },
-  { provider: 'openai', model: 'o1-mini', category: 'chat', value: 'openai:o1-mini' },
-  { provider: 'openai', model: 'o1-mini-2024-09-12', category: 'chat', value: 'openai:o1-mini-2024-09-12' },
-  { provider: 'openai', model: 'o1-preview', category: 'chat', value: 'openai:o1-preview' },
-  { provider: 'openai', model: 'o1-preview-2024-09-12', category: 'chat', value: 'openai:o1-preview-2024-09-12' },
-  { provider: 'openai', model: 'o3-mini', category: 'chat', value: 'openai:o3-mini' },
-  { provider: 'openai', model: 'o3-mini-2025-01-31', category: 'chat', value: 'openai:o3-mini-2025-01-31' },
-  { provider: 'openai', model: 'o3', category: 'chat', value: 'openai:o3' },
-  { provider: 'openai', model: 'o3-2025-04-16', category: 'chat', value: 'openai:o3-2025-04-16' },
-  { provider: 'openai', model: 'o4-mini', category: 'chat', value: 'openai:o4-mini' },
-  { provider: 'openai', model: 'o4-mini-2025-04-16', category: 'chat', value: 'openai:o4-mini-2025-04-16' },
-  { provider: 'openai', model: 'gpt-4.1', category: 'chat', value: 'openai:gpt-4.1' },
-  { provider: 'openai', model: 'gpt-4.1-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-2025-04-14' },
-  { provider: 'openai', model: 'gpt-4.1-mini', category: 'chat', value: 'openai:gpt-4.1-mini' },
-  { provider: 'openai', model: 'gpt-4.1-mini-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-mini-2025-04-14' },
-  { provider: 'openai', model: 'gpt-4.1-nano', category: 'chat', value: 'openai:gpt-4.1-nano' },
-  { provider: 'openai', model: 'gpt-4.1-nano-2025-04-14', category: 'chat', value: 'openai:gpt-4.1-nano-2025-04-14' },
-  { provider: 'openai', model: 'gpt-4o', category: 'chat', value: 'openai:gpt-4o' },
-  { provider: 'openai', model: 'gpt-4o-2024-05-13', category: 'chat', value: 'openai:gpt-4o-2024-05-13' },
-  { provider: 'openai', model: 'gpt-4o-2024-08-06', category: 'chat', value: 'openai:gpt-4o-2024-08-06' },
-  { provider: 'openai', model: 'gpt-4o-2024-11-20', category: 'chat', value: 'openai:gpt-4o-2024-11-20' },
-  { provider: 'openai', model: 'gpt-4o-audio-preview', category: 'chat', value: 'openai:gpt-4o-audio-preview' },
-  { provider: 'openai', model: 'gpt-4o-audio-preview-2024-10-01', category: 'chat', value: 'openai:gpt-4o-audio-preview-2024-10-01' },
-  { provider: 'openai', model: 'gpt-4o-audio-preview-2024-12-17', category: 'chat', value: 'openai:gpt-4o-audio-preview-2024-12-17' },
-  { provider: 'openai', model: 'gpt-4o-search-preview', category: 'chat', value: 'openai:gpt-4o-search-preview' },
-  { provider: 'openai', model: 'gpt-4o-search-preview-2025-03-11', category: 'chat', value: 'openai:gpt-4o-search-preview-2025-03-11' },
-  { provider: 'openai', model: 'gpt-4o-mini-search-preview', category: 'chat', value: 'openai:gpt-4o-mini-search-preview' },
-  { provider: 'openai', model: 'gpt-4o-mini-search-preview-2025-03-11', category: 'chat', value: 'openai:gpt-4o-mini-search-preview-2025-03-11' },
-  { provider: 'openai', model: 'gpt-4o-mini', category: 'chat', value: 'openai:gpt-4o-mini' },
-  { provider: 'openai', model: 'gpt-4o-mini-2024-07-18', category: 'chat', value: 'openai:gpt-4o-mini-2024-07-18' },
-  { provider: 'openai', model: 'gpt-4-turbo', category: 'chat', value: 'openai:gpt-4-turbo' },
-  { provider: 'openai', model: 'gpt-4-turbo-2024-04-09', category: 'chat', value: 'openai:gpt-4-turbo-2024-04-09' },
-  { provider: 'openai', model: 'gpt-4-turbo-preview', category: 'chat', value: 'openai:gpt-4-turbo-preview' },
-  { provider: 'openai', model: 'gpt-4-0125-preview', category: 'chat', value: 'openai:gpt-4-0125-preview' },
-  { provider: 'openai', model: 'gpt-4-1106-preview', category: 'chat', value: 'openai:gpt-4-1106-preview' },
-  { provider: 'openai', model: 'gpt-4', category: 'chat', value: 'openai:gpt-4' },
-  { provider: 'openai', model: 'gpt-4-0613', category: 'chat', value: 'openai:gpt-4-0613' },
-  { provider: 'openai', model: 'gpt-4.5-preview', category: 'chat', value: 'openai:gpt-4.5-preview' },
-  { provider: 'openai', model: 'gpt-4.5-preview-2025-02-27', category: 'chat', value: 'openai:gpt-4.5-preview-2025-02-27' },
-  { provider: 'openai', model: 'gpt-3.5-turbo-0125', category: 'chat', value: 'openai:gpt-3.5-turbo-0125' },
-  { provider: 'openai', model: 'gpt-3.5-turbo', category: 'chat', value: 'openai:gpt-3.5-turbo' },
-  { provider: 'openai', model: 'gpt-3.5-turbo-1106', category: 'chat', value: 'openai:gpt-3.5-turbo-1106' },
-  { provider: 'openai', model: 'chatgpt-4o-latest', category: 'chat', value: 'openai:chatgpt-4o-latest' },
-  { provider: 'openai', model: 'gpt-3.5-turbo-instruct', category: 'completion', value: 'openai:gpt-3.5-turbo-instruct' },
-  { provider: 'openai', model: 'text-embedding-3-small', category: 'embedding', value: 'openai:text-embedding-3-small' },
-  { provider: 'openai', model: 'text-embedding-3-large', category: 'embedding', value: 'openai:text-embedding-3-large' },
-  { provider: 'openai', model: 'text-embedding-ada-002', category: 'embedding', value: 'openai:text-embedding-ada-002' },
-  { provider: 'openai', model: 'gpt-image-1', category: 'image', value: 'openai:gpt-image-1' },
-  { provider: 'openai', model: 'dall-e-3', category: 'image', value: 'openai:dall-e-3' },
-  { provider: 'openai', model: 'dall-e-2', category: 'image', value: 'openai:dall-e-2' },
-  { provider: 'openai', model: 'whisper-1', category: 'transcription', value: 'openai:whisper-1' },
-  { provider: 'openai', model: 'gpt-4o-mini-transcribe', category: 'transcription', value: 'openai:gpt-4o-mini-transcribe' },
-  { provider: 'openai', model: 'gpt-4o-transcribe', category: 'transcription', value: 'openai:gpt-4o-transcribe' },
-  { provider: 'openai', model: 'tts-1', category: 'speech', value: 'openai:tts-1' },
-  { provider: 'openai', model: 'tts-1-hd', category: 'speech', value: 'openai:tts-1-hd' },
-  { provider: 'openai', model: 'gpt-4o-mini-tts', category: 'speech', value: 'openai:gpt-4o-mini-tts' },
-  { provider: 'google-vertex', model: 'imagen-3.0-generate-001', category: 'image', value: 'google-vertex:imagen-3.0-generate-001' },
-  { provider: 'google-vertex', model: 'imagen-3.0-generate-002', category: 'image', value: 'google-vertex:imagen-3.0-generate-002' },
-  { provider: 'google-vertex', model: 'imagen-3.0-fast-generate-001', category: 'image', value: 'google-vertex:imagen-3.0-fast-generate-001' },
-  { provider: 'google-vertex', model: 'gemini-2.0-flash-001', category: 'chat', value: 'google-vertex:gemini-2.0-flash-001' },
-  { provider: 'google-vertex', model: 'gemini-1.5-flash', category: 'chat', value: 'google-vertex:gemini-1.5-flash' },
-  { provider: 'google-vertex', model: 'gemini-1.5-flash-001', category: 'chat', value: 'google-vertex:gemini-1.5-flash-001' },
-  { provider: 'google-vertex', model: 'gemini-1.5-flash-002', category: 'chat', value: 'google-vertex:gemini-1.5-flash-002' },
-  { provider: 'google-vertex', model: 'gemini-1.5-pro', category: 'chat', value: 'google-vertex:gemini-1.5-pro' },
-  { provider: 'google-vertex', model: 'gemini-1.5-pro-001', category: 'chat', value: 'google-vertex:gemini-1.5-pro-001' },
-  { provider: 'google-vertex', model: 'gemini-1.5-pro-002', category: 'chat', value: 'google-vertex:gemini-1.5-pro-002' },
-  { provider: 'google-vertex', model: 'gemini-1.0-pro-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-001' },
-  { provider: 'google-vertex', model: 'gemini-1.0-pro-vision-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-vision-001' },
-  { provider: 'google-vertex', model: 'gemini-1.0-pro', category: 'chat', value: 'google-vertex:gemini-1.0-pro' },
-  { provider: 'google-vertex', model: 'gemini-1.0-pro-001', category: 'chat', value: 'google-vertex:gemini-1.0-pro-001' },
-  { provider: 'google-vertex', model: 'gemini-1.0-pro-002', category: 'chat', value: 'google-vertex:gemini-1.0-pro-002' },
-  { provider: 'google-vertex', model: 'gemini-2.0-flash-lite-preview-02-05', category: 'chat', value: 'google-vertex:gemini-2.0-flash-lite-preview-02-05' },
-  { provider: 'google-vertex', model: 'gemini-2.0-pro-exp-02-05', category: 'chat', value: 'google-vertex:gemini-2.0-pro-exp-02-05' },
-  { provider: 'google-vertex', model: 'gemini-2.0-flash-exp', category: 'chat', value: 'google-vertex:gemini-2.0-flash-exp' },
+  { provider: 'groq', model: 'gemma2-9b-it', category: 'chat', value: 'groq:gemma2-9b-it' },
+  { provider: 'groq', model: 'llama-3.3-70b-versatile', category: 'chat', value: 'groq:llama-3.3-70b-versatile' },
+  { provider: 'groq', model: 'llama-3.1-8b-instant', category: 'chat', value: 'groq:llama-3.1-8b-instant' },
+  { provider: 'groq', model: 'llama-guard-3-8b', category: 'chat', value: 'groq:llama-guard-3-8b' },
+  { provider: 'groq', model: 'llama3-70b-8192', category: 'chat', value: 'groq:llama3-70b-8192' },
+  { provider: 'groq', model: 'llama3-8b-8192', category: 'chat', value: 'groq:llama3-8b-8192' },
+  { provider: 'groq', model: 'mixtral-8x7b-32768', category: 'chat', value: 'groq:mixtral-8x7b-32768' },
+  { provider: 'groq', model: 'meta-llama/llama-4-scout-17b-16e-instruct', category: 'chat', value: 'groq:meta-llama/llama-4-scout-17b-16e-instruct' },
+  { provider: 'groq', model: 'qwen-qwq-32b', category: 'chat', value: 'groq:qwen-qwq-32b' },
+  { provider: 'groq', model: 'mistral-saba-24b', category: 'chat', value: 'groq:mistral-saba-24b' },
+  { provider: 'groq', model: 'qwen-2.5-32b', category: 'chat', value: 'groq:qwen-2.5-32b' },
+  { provider: 'groq', model: 'deepseek-r1-distill-qwen-32b', category: 'chat', value: 'groq:deepseek-r1-distill-qwen-32b' },
+  { provider: 'groq', model: 'deepseek-r1-distill-llama-70b', category: 'chat', value: 'groq:deepseek-r1-distill-llama-70b' },
+  { provider: 'groq', model: 'whisper-large-v3-turbo', category: 'transcription', value: 'groq:whisper-large-v3-turbo' },
+  { provider: 'groq', model: 'distil-whisper-large-v3-en', category: 'transcription', value: 'groq:distil-whisper-large-v3-en' },
+  { provider: 'groq', model: 'whisper-large-v3', category: 'transcription', value: 'groq:whisper-large-v3' },
   { provider: 'google', model: 'gemini-1.5-flash', category: 'chat', value: 'google:gemini-1.5-flash' },
   { provider: 'google', model: 'gemini-1.5-flash-latest', category: 'chat', value: 'google:gemini-1.5-flash-latest' },
   { provider: 'google', model: 'gemini-1.5-flash-001', category: 'chat', value: 'google:gemini-1.5-flash-001' },
@@ -616,8 +661,9 @@ export const ALL_MODELS = [
   { provider: 'google', model: 'gemma-3-27b-it', category: 'chat', value: 'google:gemma-3-27b-it' },
   { provider: 'google', model: 'learnlm-1.5-pro-experimental', category: 'chat', value: 'google:learnlm-1.5-pro-experimental' },
   { provider: 'google', model: 'text-embedding-004', category: 'embedding', value: 'google:text-embedding-004' },
-  { provider: 'elevenlabs', model: 'scribe_v1', category: 'transcription', value: 'elevenlabs:scribe_v1' },
-  { provider: 'elevenlabs', model: 'scribe_v1_experimental', category: 'transcription', value: 'elevenlabs:scribe_v1_experimental' },
+  { provider: 'revai', model: 'machine', category: 'transcription', value: 'revai:machine' },
+  { provider: 'revai', model: 'low_cost', category: 'transcription', value: 'revai:low_cost' },
+  { provider: 'revai', model: 'fusion', category: 'transcription', value: 'revai:fusion' },
   { provider: 'togetherai', model: 'meta-llama/Llama-3.3-70B-Instruct-Turbo', category: 'chat', value: 'togetherai:meta-llama/Llama-3.3-70B-Instruct-Turbo' },
   { provider: 'togetherai', model: 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo', category: 'chat', value: 'togetherai:meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo' },
   { provider: 'togetherai', model: 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', category: 'chat', value: 'togetherai:meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo' },
@@ -675,62 +721,14 @@ export const ALL_MODELS = [
   { provider: 'togetherai', model: 'black-forest-labs/FLUX.1.1-pro', category: 'image', value: 'togetherai:black-forest-labs/FLUX.1.1-pro' },
   { provider: 'togetherai', model: 'black-forest-labs/FLUX.1-pro', category: 'image', value: 'togetherai:black-forest-labs/FLUX.1-pro' },
   { provider: 'togetherai', model: 'black-forest-labs/FLUX.1-schnell-Free', category: 'image', value: 'togetherai:black-forest-labs/FLUX.1-schnell-Free' },
-  { provider: 'deepseek', model: 'deepseek-chat', category: 'chat', value: 'deepseek:deepseek-chat' },
-  { provider: 'deepseek', model: 'deepseek-reasoner', category: 'chat', value: 'deepseek:deepseek-reasoner' },
-  { provider: 'mistral', model: 'ministral-3b-latest', category: 'chat', value: 'mistral:ministral-3b-latest' },
-  { provider: 'mistral', model: 'ministral-8b-latest', category: 'chat', value: 'mistral:ministral-8b-latest' },
-  { provider: 'mistral', model: 'mistral-large-latest', category: 'chat', value: 'mistral:mistral-large-latest' },
-  { provider: 'mistral', model: 'mistral-small-latest', category: 'chat', value: 'mistral:mistral-small-latest' },
-  { provider: 'mistral', model: 'pixtral-large-latest', category: 'chat', value: 'mistral:pixtral-large-latest' },
-  { provider: 'mistral', model: 'pixtral-12b-2409', category: 'chat', value: 'mistral:pixtral-12b-2409' },
-  { provider: 'mistral', model: 'open-mistral-7b', category: 'chat', value: 'mistral:open-mistral-7b' },
-  { provider: 'mistral', model: 'open-mixtral-8x7b', category: 'chat', value: 'mistral:open-mixtral-8x7b' },
-  { provider: 'mistral', model: 'open-mixtral-8x22b', category: 'chat', value: 'mistral:open-mixtral-8x22b' },
-  { provider: 'mistral', model: 'mistral-embed', category: 'embedding', value: 'mistral:mistral-embed' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/deepseek-v3', category: 'chat', value: 'fireworks:accounts/fireworks/models/deepseek-v3' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p3-70b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p3-70b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p2-3b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p2-3b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p1-405b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p1-405b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p1-8b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p1-8b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x7b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x7b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x22b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x22b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/mixtral-8x7b-instruct-hf', category: 'chat', value: 'fireworks:accounts/fireworks/models/mixtral-8x7b-instruct-hf' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2p5-coder-32b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2p5-coder-32b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2p5-72b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2p5-72b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen-qwq-32b-preview', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen-qwq-32b-preview' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/qwen2-vl-72b-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwen2-vl-72b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3p2-11b-vision-instruct', category: 'chat', value: 'fireworks:accounts/fireworks/models/llama-v3p2-11b-vision-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/qwq-32b', category: 'chat', value: 'fireworks:accounts/fireworks/models/qwq-32b' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/yi-large', category: 'chat', value: 'fireworks:accounts/fireworks/models/yi-large' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v3-8b-instruct', category: 'completion', value: 'fireworks:accounts/fireworks/models/llama-v3-8b-instruct' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/llama-v2-34b-code', category: 'completion', value: 'fireworks:accounts/fireworks/models/llama-v2-34b-code' },
-  { provider: 'fireworks', model: 'nomic-ai/nomic-embed-text-v1.5', category: 'embedding', value: 'fireworks:nomic-ai/nomic-embed-text-v1.5' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/flux-1-dev-fp8', category: 'image', value: 'fireworks:accounts/fireworks/models/flux-1-dev-fp8' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/flux-1-schnell-fp8', category: 'image', value: 'fireworks:accounts/fireworks/models/flux-1-schnell-fp8' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/playground-v2-5-1024px-aesthetic', category: 'image', value: 'fireworks:accounts/fireworks/models/playground-v2-5-1024px-aesthetic' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/japanese-stable-diffusion-xl', category: 'image', value: 'fireworks:accounts/fireworks/models/japanese-stable-diffusion-xl' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/playground-v2-1024px-aesthetic', category: 'image', value: 'fireworks:accounts/fireworks/models/playground-v2-1024px-aesthetic' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/SSD-1B', category: 'image', value: 'fireworks:accounts/fireworks/models/SSD-1B' },
-  { provider: 'fireworks', model: 'accounts/fireworks/models/stable-diffusion-xl-1024-v1-0', category: 'image', value: 'fireworks:accounts/fireworks/models/stable-diffusion-xl-1024-v1-0' },
-  { provider: 'revai', model: 'machine', category: 'transcription', value: 'revai:machine' },
-  { provider: 'revai', model: 'low_cost', category: 'transcription', value: 'revai:low_cost' },
-  { provider: 'revai', model: 'fusion', category: 'transcription', value: 'revai:fusion' },
-  { provider: 'groq', model: 'gemma2-9b-it', category: 'chat', value: 'groq:gemma2-9b-it' },
-  { provider: 'groq', model: 'llama-3.3-70b-versatile', category: 'chat', value: 'groq:llama-3.3-70b-versatile' },
-  { provider: 'groq', model: 'llama-3.1-8b-instant', category: 'chat', value: 'groq:llama-3.1-8b-instant' },
-  { provider: 'groq', model: 'llama-guard-3-8b', category: 'chat', value: 'groq:llama-guard-3-8b' },
-  { provider: 'groq', model: 'llama3-70b-8192', category: 'chat', value: 'groq:llama3-70b-8192' },
-  { provider: 'groq', model: 'llama3-8b-8192', category: 'chat', value: 'groq:llama3-8b-8192' },
-  { provider: 'groq', model: 'mixtral-8x7b-32768', category: 'chat', value: 'groq:mixtral-8x7b-32768' },
-  { provider: 'groq', model: 'meta-llama/llama-4-scout-17b-16e-instruct', category: 'chat', value: 'groq:meta-llama/llama-4-scout-17b-16e-instruct' },
-  { provider: 'groq', model: 'qwen-qwq-32b', category: 'chat', value: 'groq:qwen-qwq-32b' },
-  { provider: 'groq', model: 'mistral-saba-24b', category: 'chat', value: 'groq:mistral-saba-24b' },
-  { provider: 'groq', model: 'qwen-2.5-32b', category: 'chat', value: 'groq:qwen-2.5-32b' },
-  { provider: 'groq', model: 'deepseek-r1-distill-qwen-32b', category: 'chat', value: 'groq:deepseek-r1-distill-qwen-32b' },
-  { provider: 'groq', model: 'deepseek-r1-distill-llama-70b', category: 'chat', value: 'groq:deepseek-r1-distill-llama-70b' },
-  { provider: 'groq', model: 'whisper-large-v3-turbo', category: 'transcription', value: 'groq:whisper-large-v3-turbo' },
-  { provider: 'groq', model: 'distil-whisper-large-v3-en', category: 'transcription', value: 'groq:distil-whisper-large-v3-en' },
-  { provider: 'groq', model: 'whisper-large-v3', category: 'transcription', value: 'groq:whisper-large-v3' },
+  { provider: 'cerebras', model: 'llama3.1-8b', category: 'chat', value: 'cerebras:llama3.1-8b' },
+  { provider: 'cerebras', model: 'llama3.1-70b', category: 'chat', value: 'cerebras:llama3.1-70b' },
+  { provider: 'cerebras', model: 'llama-3.3-70b', category: 'chat', value: 'cerebras:llama-3.3-70b' },
+  { provider: 'perplexity', model: 'sonar-deep-research', category: 'chat', value: 'perplexity:sonar-deep-research' },
+  { provider: 'perplexity', model: 'sonar-reasoning-pro', category: 'chat', value: 'perplexity:sonar-reasoning-pro' },
+  { provider: 'perplexity', model: 'sonar-reasoning', category: 'chat', value: 'perplexity:sonar-reasoning' },
+  { provider: 'perplexity', model: 'sonar-pro', category: 'chat', value: 'perplexity:sonar-pro' },
+  { provider: 'perplexity', model: 'sonar', category: 'chat', value: 'perplexity:sonar' },
   { provider: 'cohere', model: 'command-a-03-2025', category: 'chat', value: 'cohere:command-a-03-2025' },
   { provider: 'cohere', model: 'command-r7b-12-2024', category: 'chat', value: 'cohere:command-r7b-12-2024' },
   { provider: 'cohere', model: 'command-r-plus-04-2024', category: 'chat', value: 'cohere:command-r-plus-04-2024' },
@@ -749,6 +747,8 @@ export const ALL_MODELS = [
   { provider: 'cohere', model: 'embed-english-v2.0', category: 'embedding', value: 'cohere:embed-english-v2.0' },
   { provider: 'cohere', model: 'embed-english-light-v2.0', category: 'embedding', value: 'cohere:embed-english-light-v2.0' },
   { provider: 'cohere', model: 'embed-multilingual-v2.0', category: 'embedding', value: 'cohere:embed-multilingual-v2.0' },
+  { provider: 'deepseek', model: 'deepseek-chat', category: 'chat', value: 'deepseek:deepseek-chat' },
+  { provider: 'deepseek', model: 'deepseek-reasoner', category: 'chat', value: 'deepseek:deepseek-reasoner' },
   { provider: 'xai', model: 'grok-3', category: 'chat', value: 'xai:grok-3' },
   { provider: 'xai', model: 'grok-3-latest', category: 'chat', value: 'xai:grok-3-latest' },
   { provider: 'xai', model: 'grok-3-fast', category: 'chat', value: 'xai:grok-3-fast' },
