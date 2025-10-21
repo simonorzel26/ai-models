@@ -1,6 +1,6 @@
 # AI Models Statistics
 
-Last updated: 2025-10-18 06:02:39 UTC
+Last updated: 2025-10-21 06:03:30 UTC
 
 ## Current Statistics
 
@@ -26,5 +26,5 @@ xai: 20
 ## Categories
 
 ```javascript
-chat, completion, embedding, image, transcription, speech
+chat, embedding, image, speech, transcription, completion
 ```
